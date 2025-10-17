@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FDS TMS Topology Designer</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen">
+  <div class="flex flex-col h-screen">
+    <header class="panel px-6 py-5 flex items-center gap-6">
+      <div class="flex flex-col gap-1">
+        <span class="text-[11px] uppercase tracking-[0.28em] text-slate-500">Topology Map</span>
+        <h1 class="text-xl font-semibold" id="metaTitle">FDS TMS Topology</h1>
+      </div>
+      <div class="text-xs text-slate-400" id="metaVersion"></div>
+      <div class="text-xs text-slate-400" id="metaOwner"></div>
+      <div class="text-xs text-slate-500" id="fileName"></div>
+      <div class="ml-auto flex items-center gap-2">
+        <button id="themeToggle" class="control-button">Light Mode</button>
+        <button id="layoutBtn" class="control-button">Re-run Layout</button>
+        <button id="fitButton" class="control-button">Fit View</button>
+        <button id="resetBtn" class="control-button destructive">Reset</button>
+        <input id="fileInput" type="file" accept="application/json" class="hidden">
+        <button id="loadBtn" class="control-button">Load JSON</button>
+        <button id="exportBtn" class="control-button primary">Export JSON</button>
+      </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+      <aside class="sidebar panel w-72 flex flex-col">
+        <div class="p-5 border-b border-slate-800/60">
+          <p class="text-sm leading-relaxed text-slate-300" id="metaDescription"></p>
+        </div>
+        <div class="p-5 border-b border-slate-800/60 space-y-4">
+          <div>
+            <div class="sidebar-section-title mb-2">Search</div>
+            <input id="searchInput" type="search" placeholder="Find node, tag, or summary">
+          </div>
+          <div class="grid grid-cols-1 gap-3">
+            <div>
+              <div class="sidebar-section-title mb-2">Type</div>
+              <select id="typeFilter">
+                <option value="all">All types</option>
+              </select>
+            </div>
+            <div>
+              <div class="sidebar-section-title mb-2">Tag</div>
+              <select id="tagFilter">
+                <option value="all">All tags</option>
+              </select>
+            </div>
+            <div>
+              <div class="sidebar-section-title mb-2">Relationship</div>
+              <select id="intentFilter">
+                <option value="all">All relationships</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="p-5 border-b border-slate-800/60" id="legend"></div>
+        <div class="p-5 flex-1 overflow-y-auto scroll-thin" id="notesPanel"></div>
+      </aside>
+
+      <section class="flex-1 relative">
+        <div id="graphHost" class="absolute inset-0 overflow-hidden">
+          <div id="panLayer" class="absolute top-0 left-0 will-change-transform">
+            <svg id="graphSvg" class="absolute top-0 left-0 overflow-visible" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="edge-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+                  <path d="M0,0 L12,6 L0,12 Z" fill="context-stroke"></path>
+                </marker>
+                <filter id="edge-glow" x="-150%" y="-150%" width="400%" height="400%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#38bdf8" flood-opacity="0.25"></feDropShadow>
+                </filter>
+              </defs>
+              <g id="edgeLayer"></g>
+            </svg>
+            <div id="nodeLayer" class="absolute top-0 left-0"></div>
+          </div>
+          <div id="dropHint" class="hidden absolute inset-0 panel items-center justify-center border border-dashed border-slate-600/70">
+            <div class="text-center space-y-2">
+              <div class="tracking-[0.28em] uppercase text-sm text-slate-300">Drop a topology .json</div>
+              <div class="text-xs text-slate-400">The map will update instantly.</div>
+            </div>
+          </div>
+          <div id="layoutSpinner" class="hidden absolute top-4 left-1/2 -translate-x-1/2">
+            <div class="flex items-center gap-3 rounded-full border border-slate-700/70 bg-slate-900/80 px-4 py-2 text-xs uppercase tracking-[0.3em]">
+              <span class="inline-flex h-2.5 w-2.5 rounded-full bg-sky-400 animate-ping"></span>
+              <span>Calculating layout</span>
+            </div>
+          </div>
+        </div>
+        <canvas id="minimap" width="200" height="140" class="absolute bottom-5 right-5 border border-slate-800/70 rounded-xl panel"></canvas>
+      </section>
+
+      <aside class="inspector panel w-80 flex flex-col">
+        <div class="px-5 py-4 border-b border-slate-800/60">
+          <div class="sidebar-section-title mb-1">Inspector</div>
+          <div id="inspectorTitle" class="text-lg font-semibold text-slate-100">Select a node</div>
+        </div>
+        <div class="flex-1 overflow-y-auto scroll-thin px-5 py-5" id="inspectorBody">
+          <p class="text-sm text-slate-400 leading-relaxed">Hover nodes for quick context. Click a component to inspect, view metrics, and deep-link to documentation.</p>
+        </div>
+      </aside>
+    </div>
+
+    <div id="toast" class="hidden fixed bottom-6 right-6"></div>
+  </div>
+
+  <script type="module" src="app/main.js"></script>
+</body>
+</html>

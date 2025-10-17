@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "name": "FDS_TMS Plugin Overview",
+    "version": "2025.10.16",
+    "owner": "Codex Delivery",
+    "description": "Top-level view of the FDS_TMS plugin: modules, subsystems, bridges, support systems, and current delivery status.",
+    "intents": {
+      "depends-on": { "label": "Depends On", "color": "#38bdf8" },
+      "contains": { "label": "Contains / Owns", "color": "#34d399" },
+      "publishes": { "label": "Publishes to", "color": "#f472b6" },
+      "integrates": { "label": "Integrates With", "color": "#f97316" },
+      "supports": { "label": "Supports", "color": "#a855f7" },
+      "external": { "label": "External System", "color": "#fb7185" }
+    }
+  },
+  "nodes": [
+    {
+      "id": "plugin",
+      "label": "FDS_TMS Plugin",
+      "type": "core",
+      "group": "Platform",
+      "summary": "Authoritative traffic management plugin for FDS: runtime, editor, bridges, debugging, and provider contracts.",
+      "status": { "label": "Live", "tone": "success" },
+      "tags": ["plugin"],
+      "layout": { "x": 60, "y": 40, "fixed": true }
+    },
+    {
+      "id": "core",
+      "label": "FDS_TMS_Core",
+      "type": "core",
+      "group": "Modules",
+      "summary": "Registry, world subsystem, provider interface, CVars/logging, plugin boot strap.",
+      "status": { "label": "Stable", "tone": "success" },
+      "metrics": [
+        { "label": "Tick Target", "value": "1 ms avg" }
+      ],
+      "tags": ["subsystem", "registry"],
+      "layout": { "x": 360, "y": 60, "fixed": true }
+    },
+    {
+      "id": "worldSubsystem",
+      "label": "UFDS_TMS_WorldSubsystem",
+      "type": "subsystem",
+      "group": "Core Services",
+      "summary": "Owns world state sync and deterministic time slice allocation.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 620, "y": 0, "fixed": true }
+    },
+    {
+      "id": "registrySubsystem",
+      "label": "UFDS_TMS_TrafficRegistrySubsystem",
+      "type": "subsystem",
+      "group": "Core Services",
+      "summary": "Source of truth for lanes, junctions, and topology metadata.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 620, "y": 120, "fixed": true }
+    },
+    {
+      "id": "providerInterface",
+      "label": "IFDS_TMS_VehicleProvider",
+      "type": "interface",
+      "group": "Core Services",
+      "summary": "Vehicle provider contract; binds to FGEAR or alternate implementation via CVars.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 620, "y": 240, "fixed": true }
+    },
+    {
+      "id": "runtime",
+      "label": "FDS_TMS_TrafficRuntime",
+      "type": "runtime",
+      "group": "Modules",
+      "summary": "Core runtime loop: manager, vehicle updates, lane checking, LOD/despawn.",
+      "status": { "label": "Stable", "tone": "success" },
+      "tags": ["runtime"],
+      "layout": { "x": 360, "y": 240, "fixed": true }
+    },
+    {
+      "id": "trafficManager",
+      "label": "AFDS_TMS_TrafficManager",
+      "type": "controller",
+      "group": "Runtime",
+      "summary": "Timer-driven manager orchestrating ticks, debug previews, and compliance checks.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 620, "y": 360, "fixed": true }
+    },
+    {
+      "id": "laneChecker",
+      "label": "UFDS_TMS_LaneCheckerComponent",
+      "type": "component",
+      "group": "Runtime",
+      "summary": "Telemetry component emitting wrong-way and off-lane events.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 620, "y": 480, "fixed": true }
+    },
+    {
+      "id": "lodDespawner",
+      "label": "LOD & Despawn Service",
+      "type": "component",
+      "group": "Runtime",
+      "summary": "Budgets logical vs rendered vehicles; enforces near-player cap.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 620, "y": 600, "fixed": true }
+    },
+    {
+      "id": "signals",
+      "label": "FDS_TMS_SignalsRuntime",
+      "type": "runtime",
+      "group": "Modules",
+      "summary": "Junction topology, phases, and traffic light orchestration.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 360, "y": 420, "fixed": true }
+    },
+    {
+      "id": "phaseAsset",
+      "label": "UFDS_TMS_SignalPhaseAsset",
+      "type": "asset",
+      "group": "Signals",
+      "summary": "Data asset describing multi-junction cycles and pedestrian phases.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 620, "y": 720, "fixed": true }
+    },
+    {
+      "id": "junctionController",
+      "label": "AFDS_TMS_JunctionSignalController",
+      "type": "controller",
+      "group": "Signals",
+      "summary": "Drives per-lane signal states; enforces no-conflict greens.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 620, "y": 840, "fixed": true }
+    },
+    {
+      "id": "editor",
+      "label": "FDS_TMS_Editor",
+      "type": "tooling",
+      "group": "Modules",
+      "summary": "Authoring tools: spline generator, baking, debug overlays, CallInEditor utilities.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 360, "y": 600, "fixed": true }
+    },
+    {
+      "id": "splineTools",
+      "label": "Spline Tools",
+      "type": "service",
+      "group": "Editor",
+      "summary": "Lane spline auto-connect, merge, and cleanup.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 620, "y": 960, "fixed": true }
+    },
+    {
+      "id": "debugOverlay",
+      "label": "Lane Debug Overlay",
+      "type": "service",
+      "group": "Editor",
+      "summary": "Per-lane visualization with filters and fds.tms.debug.lanes CVar.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 620, "y": 1080, "fixed": true }
+    },
+    {
+      "id": "fgear",
+      "label": "FDS_TMS_FGEARBridge",
+      "type": "bridge",
+      "group": "Integrations",
+      "summary": "FGEAR telemetry bridge implementing the provider interface.",
+      "status": { "label": "Stable", "tone": "success" },
+      "layout": { "x": 360, "y": 780, "fixed": true }
+    },
+    {
+      "id": "altProvider",
+      "label": "Alternate Provider Slot",
+      "type": "interface",
+      "group": "Integrations",
+      "summary": "Placeholder for future providers via IFDS_TMS_VehicleProvider.",
+      "status": { "label": "Planned", "tone": "info" },
+      "layout": { "x": 620, "y": 1200, "fixed": true }
+    },
+    {
+      "id": "scoringBridge",
+      "label": "FDS_TMS_ScoringBridgeComponent",
+      "type": "bridge",
+      "group": "Integrations",
+      "summary": "Publishes penalties/events to external scoring plugin.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 360, "y": 960, "fixed": true }
+    },
+    {
+      "id": "scoringPlugin",
+      "label": "FDS_Scoring Plugin",
+      "type": "external",
+      "group": "External",
+      "summary": "Standalone scoring runtime storing analytics, UI, persistence.",
+      "status": { "label": "External", "tone": "info" },
+      "layout": { "x": 620, "y": 1320, "fixed": true }
+    },
+    {
+      "id": "support",
+      "label": "Support Systems",
+      "type": "component",
+      "group": "Platform",
+      "summary": "Debug CVars, telemetry, automated QA previews, seeded RNG.",
+      "status": { "label": "Healthy", "tone": "success" },
+      "layout": { "x": 60, "y": 220, "fixed": true }
+    },
+    {
+      "id": "guardrailsNode",
+      "label": "Guardrails",
+      "type": "component",
+      "group": "Platform",
+      "summary": "No world scans, optional provider linking, timer-driven manager, reproducible RNG.",
+      "status": { "label": "Enforced", "tone": "success" },
+      "layout": { "x": 60, "y": 360, "fixed": true }
+    },
+    {
+      "id": "telemetry",
+      "label": "Telemetry & QA",
+      "type": "service",
+      "group": "Platform",
+      "summary": "Tick micro-timings, registry assertions, automated previews.",
+      "status": { "label": "In Progress", "tone": "warning" },
+      "layout": { "x": 60, "y": 520, "fixed": true }
+    }
+  ],
+  "edges": [
+    { "from": "plugin", "to": "core", "intent": "contains" },
+    { "from": "plugin", "to": "runtime", "intent": "contains" },
+    { "from": "plugin", "to": "signals", "intent": "contains" },
+    { "from": "plugin", "to": "editor", "intent": "contains" },
+    { "from": "plugin", "to": "fgear", "intent": "contains" },
+    { "from": "plugin", "to": "scoringBridge", "intent": "contains" },
+    { "from": "plugin", "to": "support", "intent": "contains" },
+    { "from": "plugin", "to": "guardrailsNode", "intent": "supports" },
+    { "from": "core", "to": "worldSubsystem", "intent": "contains" },
+    { "from": "core", "to": "registrySubsystem", "intent": "contains" },
+    { "from": "core", "to": "providerInterface", "intent": "contains" },
+    { "from": "core", "to": "runtime", "intent": "depends-on" },
+    { "from": "core", "to": "signals", "intent": "depends-on" },
+    { "from": "core", "to": "editor", "intent": "depends-on" },
+    { "from": "runtime", "to": "trafficManager", "intent": "contains" },
+    { "from": "runtime", "to": "laneChecker", "intent": "contains" },
+    { "from": "runtime", "to": "lodDespawner", "intent": "contains" },
+    { "from": "runtime", "to": "providerInterface", "intent": "depends-on" },
+    { "from": "signals", "to": "phaseAsset", "intent": "contains" },
+    { "from": "signals", "to": "junctionController", "intent": "contains" },
+    { "from": "editor", "to": "splineTools", "intent": "contains" },
+    { "from": "editor", "to": "debugOverlay", "intent": "contains" },
+    { "from": "fgear", "to": "providerInterface", "intent": "implements" },
+    { "from": "altProvider", "to": "providerInterface", "intent": "implements" },
+    { "from": "scoringBridge", "to": "scoringPlugin", "intent": "publishes" },
+    { "from": "laneChecker", "to": "scoringBridge", "intent": "publishes" },
+    { "from": "junctionController", "to": "scoringBridge", "intent": "publishes" },
+    { "from": "support", "to": "debugOverlay", "intent": "supports" },
+    { "from": "support", "to": "telemetry", "intent": "contains" },
+    { "from": "telemetry", "to": "guardrailsNode", "intent": "supports" },
+    { "from": "telemetry", "to": "runtime", "intent": "supports" },
+    { "from": "telemetry", "to": "signals", "intent": "supports" }
+  ]
+}

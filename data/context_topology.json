@@ -1,0 +1,285 @@
+{
+  "meta": {
+    "name": "FDS_TMS Context Map",
+    "version": "2025.10.16",
+    "owner": "Codex Delivery",
+    "description": "Context brief distilled into a topology: strategy, guardrails, architecture, and near-term work streams for FDS_TMS.",
+    "intents": {
+      "supports": { "label": "Supports", "color": "#34d399" },
+      "depends-on": { "label": "Depends On", "color": "#38bdf8" },
+      "delivers": { "label": "Delivers Capability", "color": "#f97316" },
+      "publishes": { "label": "Publishes Events", "color": "#f472b6" },
+      "external": { "label": "External System", "color": "#fb7185" },
+      "tracks": { "label": "Tracks / Validates", "color": "#a855f7" }
+    },
+    "guides": [
+      {
+        "label": "Context Brief",
+        "url": "context.md",
+        "description": "Full operational brief used to compose this topology."
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "vision",
+      "label": "TMS Purpose",
+      "type": "core",
+      "group": "Strategy",
+      "summary": "Deterministic, modular traffic system with bounded tick cost and clean seams.",
+      "details": "Acts as the north star: protect determinism, keep plugins isolated, and surface clean debugging.",
+      "status": { "label": "Stable", "tone": "success" },
+      "tags": ["purpose", "strategy"],
+      "layout": { "x": 40, "y": 40, "fixed": true }
+    },
+    {
+      "id": "scope",
+      "label": "In-Scope Surfaces",
+      "type": "service",
+      "group": "Strategy",
+      "summary": "Runtime, editor tools, FGEAR bridge, and scoring bridge.",
+      "details": "Explicitly excludes rendering-wide FPS work or full physics. Focus is on TMS responsibilities.",
+      "layout": { "x": 40, "y": 200, "fixed": true }
+    },
+    {
+      "id": "guardrails",
+      "label": "Guardrails",
+      "type": "subsystem",
+      "group": "Principles",
+      "summary": "No world scans, timer-driven manager, seeded RNG, optional provider linking.",
+      "details": "Protect runtime integrity: avoid GetAllActors, keep debug under fds.tms.* CVars, compile without FGEAR.",
+      "status": { "label": "Must Hold", "tone": "warning" },
+      "tags": ["non-regression"],
+      "layout": { "x": 40, "y": 360, "fixed": true }
+    },
+    {
+      "id": "acceptance",
+      "label": "Acceptance Criteria",
+      "type": "component",
+      "group": "Principles",
+      "summary": "1 ms tick, clear lanes, safe junctions, polite AI, bridge isolation.",
+      "details": "Defines the measurable success checks for QA and agents.",
+      "status": { "label": "QA Gates", "tone": "info" },
+      "layout": { "x": 40, "y": 520, "fixed": true }
+    },
+    {
+      "id": "nonGoals",
+      "label": "Non-Goals",
+      "type": "component",
+      "group": "Principles",
+      "summary": "Scoring logic, motorcycle behaviour, platform renderer tuning.",
+      "details": "Keep focus: these belong to other teams or later phases.",
+      "layout": { "x": 40, "y": 680, "fixed": true }
+    },
+    {
+      "id": "coreModule",
+      "label": "FDS_TMS_Core",
+      "type": "core",
+      "group": "Modules",
+      "summary": "Subsystems, registry, provider API, CVars & logs.",
+      "status": { "label": "Stable", "tone": "success" },
+      "metrics": [{ "label": "Tick Target", "value": "1 ms" }],
+      "layout": { "x": 360, "y": 60, "fixed": true }
+    },
+    {
+      "id": "runtimeModule",
+      "label": "FDS_TMS_TrafficRuntime",
+      "type": "runtime",
+      "group": "Modules",
+      "summary": "Manager, AutoDrive, lane/LOD/despawn, compliance checks.",
+      "layout": { "x": 360, "y": 220, "fixed": true }
+    },
+    {
+      "id": "signalsModule",
+      "label": "FDS_TMS_SignalsRuntime",
+      "type": "runtime",
+      "group": "Modules",
+      "summary": "Traffic lights, junction topology, phase orchestration.",
+      "layout": { "x": 360, "y": 380, "fixed": true }
+    },
+    {
+      "id": "editorModule",
+      "label": "FDS_TMS_Editor",
+      "type": "tooling",
+      "group": "Modules",
+      "summary": "Baking, spline tooling, debug overlays, CallInEditor utilities.",
+      "layout": { "x": 360, "y": 540, "fixed": true }
+    },
+    {
+      "id": "fgearBridge",
+      "label": "FDS_TMS_FGEARBridge",
+      "type": "bridge",
+      "group": "Modules",
+      "summary": "Optional vehicle provider implementation for FGEAR.",
+      "status": { "label": "Optional", "tone": "info" },
+      "layout": { "x": 360, "y": 700, "fixed": true }
+    },
+    {
+      "id": "scoringBridge",
+      "label": "FDS_TMS_ScoringBridge",
+      "type": "bridge",
+      "group": "Modules",
+      "summary": "Event surface to scoring; no scoring logic inside TMS.",
+      "status": { "label": "In Flight", "tone": "warning" },
+      "layout": { "x": 360, "y": 860, "fixed": true }
+    },
+    {
+      "id": "scoringPlugin",
+      "label": "FDS_Scoring Plugin",
+      "type": "external",
+      "group": "External Systems",
+      "summary": "Independent plugin for scoring runtime, UI, analytics, persistence.",
+      "layout": { "x": 620, "y": 860, "fixed": true }
+    },
+    {
+      "id": "workstreamM0",
+      "label": "M0 Workstream",
+      "type": "component",
+      "group": "Roadmap",
+      "summary": "Immediate deliverables: debug lanes, spline cleanup, scoring bridge, fixed-time signals.",
+      "status": { "label": "Active", "tone": "warning" },
+      "layout": { "x": 720, "y": 60, "fixed": true }
+    },
+    {
+      "id": "debugLane",
+      "label": "Debug Lane Draw",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Editor overlay with filters and fds.tms.debug.lanes CVar.",
+      "layout": { "x": 720, "y": 200, "fixed": true }
+    },
+    {
+      "id": "splineCleanup",
+      "label": "Spline Generation & Cleanup",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Junction-aware auto-connect, merge passes, RDP decimator.",
+      "layout": { "x": 720, "y": 340, "fixed": true }
+    },
+    {
+      "id": "scoringBridgeTask",
+      "label": "Scoring Bridge Component",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Publish penalties via bridge, no dependency on scoring plugin.",
+      "layout": { "x": 720, "y": 480, "fixed": true }
+    },
+    {
+      "id": "fixedSignals",
+      "label": "Fixed-Time Signals",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Junction controller, phase asset, per-lane state feed.",
+      "layout": { "x": 720, "y": 620, "fixed": true }
+    },
+    {
+      "id": "workstreamM1",
+      "label": "M1 Workstream",
+      "type": "component",
+      "group": "Roadmap",
+      "summary": "Next wave: auto-connect, AI behaviour, scaling, pedestrians.",
+      "layout": { "x": 980, "y": 60, "fixed": true }
+    },
+    {
+      "id": "autoConnect",
+      "label": "Auto-Connect Generator",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Junction detection and turn spline creation with orphan jointing.",
+      "layout": { "x": 980, "y": 200, "fixed": true }
+    },
+    {
+      "id": "aiBehaviour",
+      "label": "AI Behaviour Pass 1",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Polite defaults, signalling discipline, safe gap logic, chaos scalar.",
+      "layout": { "x": 980, "y": 340, "fixed": true }
+    },
+    {
+      "id": "trafficScaling",
+      "label": "Traffic Scaling",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Registry-driven spawner, LOD bands, near-player render cap.",
+      "layout": { "x": 980, "y": 480, "fixed": true }
+    },
+    {
+      "id": "pedestrians",
+      "label": "Pedestrians v0",
+      "type": "service",
+      "group": "Roadmap",
+      "summary": "Crosswalk splines, spawn on walk, distance-based culling.",
+      "layout": { "x": 980, "y": 620, "fixed": true }
+    },
+    {
+      "id": "telemetryQA",
+      "label": "Telemetry & QA",
+      "type": "component",
+      "group": "Support",
+      "summary": "Automated previews, tick micro-timings, registry assertions.",
+      "layout": { "x": 980, "y": 760, "fixed": true }
+    },
+    {
+      "id": "cvars",
+      "label": "Public API & CVars",
+      "type": "component",
+      "group": "Principles",
+      "summary": "Subsystem interfaces and knobs like fds.tms.tickrate, fds.tms.debug.lanes.",
+      "layout": { "x": 40, "y": 840, "fixed": true }
+    },
+    {
+      "id": "providerSeam",
+      "label": "Provider Seam",
+      "type": "interface",
+      "group": "Principles",
+      "summary": "IFDS_TMS_VehicleProvider contract; selectable via fds.tms.vehicle.provider.",
+      "layout": { "x": 40, "y": 1000, "fixed": true }
+    }
+  ],
+  "edges": [
+    { "from": "vision", "to": "scope", "intent": "supports" },
+    { "from": "vision", "to": "guardrails", "intent": "supports" },
+    { "from": "vision", "to": "coreModule", "intent": "supports" },
+    { "from": "guardrails", "to": "runtimeModule", "intent": "supports" },
+    { "from": "guardrails", "to": "signalsModule", "intent": "supports" },
+    { "from": "guardrails", "to": "scoringBridge", "intent": "supports" },
+    { "from": "acceptance", "to": "runtimeModule", "intent": "tracks" },
+    { "from": "acceptance", "to": "signalsModule", "intent": "tracks" },
+    { "from": "acceptance", "to": "aiBehaviour", "intent": "tracks" },
+    { "from": "acceptance", "to": "trafficScaling", "intent": "tracks" },
+    { "from": "coreModule", "to": "runtimeModule", "intent": "depends-on" },
+    { "from": "coreModule", "to": "signalsModule", "intent": "depends-on" },
+    { "from": "coreModule", "to": "editorModule", "intent": "depends-on" },
+    { "from": "coreModule", "to": "scoringBridge", "intent": "depends-on" },
+    { "from": "runtimeModule", "to": "fgearBridge", "intent": "depends-on" },
+    { "from": "scoringBridge", "to": "scoringPlugin", "intent": "publishes" },
+    { "from": "providerSeam", "to": "fgearBridge", "intent": "supports" },
+    { "from": "workstreamM0", "to": "debugLane", "intent": "supports" },
+    { "from": "workstreamM0", "to": "splineCleanup", "intent": "supports" },
+    { "from": "workstreamM0", "to": "scoringBridgeTask", "intent": "supports" },
+    { "from": "workstreamM0", "to": "fixedSignals", "intent": "supports" },
+    { "from": "debugLane", "to": "editorModule", "intent": "delivers" },
+    { "from": "debugLane", "to": "guardrails", "intent": "supports" },
+    { "from": "splineCleanup", "to": "editorModule", "intent": "delivers" },
+    { "from": "splineCleanup", "to": "runtimeModule", "intent": "delivers" },
+    { "from": "scoringBridgeTask", "to": "scoringBridge", "intent": "delivers" },
+    { "from": "fixedSignals", "to": "signalsModule", "intent": "delivers" },
+    { "from": "workstreamM1", "to": "autoConnect", "intent": "supports" },
+    { "from": "workstreamM1", "to": "aiBehaviour", "intent": "supports" },
+    { "from": "workstreamM1", "to": "trafficScaling", "intent": "supports" },
+    { "from": "workstreamM1", "to": "pedestrians", "intent": "supports" },
+    { "from": "autoConnect", "to": "signalsModule", "intent": "delivers" },
+    { "from": "autoConnect", "to": "runtimeModule", "intent": "delivers" },
+    { "from": "aiBehaviour", "to": "runtimeModule", "intent": "delivers" },
+    { "from": "trafficScaling", "to": "runtimeModule", "intent": "delivers" },
+    { "from": "pedestrians", "to": "signalsModule", "intent": "delivers" },
+    { "from": "telemetryQA", "to": "guardrails", "intent": "tracks" },
+    { "from": "telemetryQA", "to": "acceptance", "intent": "tracks" },
+    { "from": "telemetryQA", "to": "workstreamM0", "intent": "supports" },
+    { "from": "telemetryQA", "to": "workstreamM1", "intent": "supports" },
+    { "from": "cvars", "to": "coreModule", "intent": "supports" },
+    { "from": "cvars", "to": "runtimeModule", "intent": "supports" },
+    { "from": "cvars", "to": "signalsModule", "intent": "supports" }
+  ]
+}
