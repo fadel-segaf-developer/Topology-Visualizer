@@ -1,0 +1,23 @@
+{
+  "exported_at": "2025-10-20T07:16:15.193Z",
+  "base": "https://git.frys.co.id",
+  "owner": "FRYS-DEV",
+  "repo": "UE_FDS3",
+  "limit": 50,
+  "max_lines": 700,
+  "chunk_fallback_size": 25,
+  "counts": {
+    "issues_total": 125,
+    "files": 7
+  },
+  "source_file": null,
+  "files": [
+    "issues\\issues.part01.json",
+    "issues\\issues.part02.json",
+    "issues\\issues.part03.json",
+    "issues\\issues.part04.json",
+    "issues\\issues.part05.json",
+    "issues\\issues.part06.json",
+    "issues\\issues.part07.json"
+  ]
+}

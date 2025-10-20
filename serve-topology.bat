@@ -4,6 +4,17 @@ setlocal enabledelayedexpansion
 :: Serve the topology app from this directory on http://localhost:5500
 pushd "%~dp0"
 
+if exist "package.json" (
+  echo Running npm build to refresh assets...
+  call npm run build
+  if errorlevel 1 (
+    echo npm run build failed. Fix the errors and rerun this script.
+    goto :end
+  )
+) else (
+  echo package.json not found. Skipping npm build step.
+)
+
 set "PY_CMD="
 set "PY_ARGS="
 

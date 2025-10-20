@@ -1,0 +1,648 @@
+[
+  {
+    "number": 43,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/43",
+    "title": "3D Asset List",
+    "state": "closed",
+    "created_at": "2025-08-29T15:54:23+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:46:31+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 4,
+      "title": "2 - Blockout",
+      "due_on": "2025-09-04T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 42,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/42",
+    "title": "Filling Backlog  (3D Artists)",
+    "state": "open",
+    "created_at": "2025-08-29T15:22:11+07:00",
+    "updated_at": "2025-10-09T14:30:37+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "yogi",
+        "username": "yogi",
+        "html_url": "https://git.frys.co.id/yogi",
+        "id": 9
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 41,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/41",
+    "title": "Integrate Thrustmaster TH8A H-Pattern Shifter",
+    "state": "closed",
+    "created_at": "2025-08-29T13:51:22+07:00",
+    "updated_at": "2025-10-20T11:16:32+07:00",
+    "closed_at": "2025-10-06T15:28:26+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 40,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/40",
+    "title": "Integrate Thrustmaster Inputs with FGear Vehicle",
+    "state": "closed",
+    "created_at": "2025-08-29T13:49:33+07:00",
+    "updated_at": "2025-10-20T11:16:32+07:00",
+    "closed_at": "2025-10-06T15:28:24+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 39,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/39",
+    "title": "Document Thrustmaster Integration Process",
+    "state": "open",
+    "created_at": "2025-08-28T11:24:52+07:00",
+    "updated_at": "2025-10-17T14:54:27+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 38,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/38",
+    "title": "Setup Basic Force Feedback",
+    "state": "open",
+    "created_at": "2025-08-28T11:23:33+07:00",
+    "updated_at": "2025-08-29T15:58:43+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 37,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/37",
+    "title": "Implement Simple Controller Plugin Integration",
+    "state": "closed",
+    "created_at": "2025-08-28T11:22:01+07:00",
+    "updated_at": "2025-10-09T15:49:50+07:00",
+    "closed_at": "2025-10-06T15:28:23+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 36,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/36",
+    "title": "Create Input Mapping in Unreal Engine",
+    "state": "open",
+    "created_at": "2025-08-28T11:20:42+07:00",
+    "updated_at": "2025-08-29T15:58:36+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 35,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/35",
+    "title": "Setup Thrustmaster SDK & Verify Hardware",
+    "state": "closed",
+    "created_at": "2025-08-28T11:19:18+07:00",
+    "updated_at": "2025-10-09T15:49:50+07:00",
+    "closed_at": "2025-10-06T15:28:21+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 34,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/34",
+    "title": "tune vehicle config, modify level, add road spline",
+    "state": "closed",
+    "created_at": "2025-08-26T13:47:29+07:00",
+    "updated_at": "2025-08-27T15:50:41+07:00",
+    "closed_at": "2025-08-26T13:48:51+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 33,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/33",
+    "title": "sdl2 lib ignored fix",
+    "state": "closed",
+    "created_at": "2025-08-22T15:32:20+07:00",
+    "updated_at": "2025-08-25T10:14:53+07:00",
+    "closed_at": "2025-08-22T15:32:58+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 32,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/32",
+    "title": "second build fix attempt",
+    "state": "closed",
+    "created_at": "2025-08-22T15:12:09+07:00",
+    "updated_at": "2025-08-25T10:14:53+07:00",
+    "closed_at": "2025-08-22T15:13:20+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 31,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/31",
+    "title": "fix gitignore gitattribute to include plugin lfs files",
+    "state": "closed",
+    "created_at": "2025-08-22T14:50:29+07:00",
+    "updated_at": "2025-08-25T10:14:53+07:00",
+    "closed_at": "2025-08-22T14:52:01+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 30,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/30",
+    "title": "init unreal project, including fgear and simple controller plugin task #1 #2 #4 #19",
+    "state": "closed",
+    "created_at": "2025-08-22T11:02:59+07:00",
+    "updated_at": "2025-08-29T15:47:52+07:00",
+    "closed_at": "2025-08-22T11:06:21+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 28,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/28",
+    "title": "Implement rough UI widgets with dummy buttons",
+    "state": "open",
+    "created_at": "2025-08-22T10:37:41+07:00",
+    "updated_at": "2025-10-06T14:51:12+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 27,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/27",
+    "title": "Define required UI states/screens",
+    "state": "open",
+    "created_at": "2025-08-22T10:37:23+07:00",
+    "updated_at": "2025-10-06T14:51:12+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 26,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/26",
+    "title": "Create placeholder dashboard UI widget",
+    "state": "open",
+    "created_at": "2025-08-22T10:36:51+07:00",
+    "updated_at": "2025-10-06T14:51:12+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 25,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/25",
+    "title": "Evaluate simple AI pathing solutions (navmesh vs. spline vs. script)",
+    "state": "open",
+    "created_at": "2025-08-22T10:36:28+07:00",
+    "updated_at": "2025-09-26T10:46:04+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadhil",
+        "username": "fadhil",
+        "html_url": "https://git.frys.co.id/fadhil",
+        "id": 1
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 22,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/22",
+    "title": "Implement driver view camera",
+    "state": "closed",
+    "created_at": "2025-08-22T10:34:11+07:00",
+    "updated_at": "2025-10-06T14:50:46+07:00",
+    "closed_at": "2025-10-06T14:50:35+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 21,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/21",
+    "title": "Implement event manager system (scenario triggers, conditions)",
+    "state": "open",
+    "created_at": "2025-08-22T10:33:58+07:00",
+    "updated_at": "2025-10-07T09:37:54+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 20,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/20",
+    "title": "Investigate traffic simulation libraries or plugins",
+    "state": "open",
+    "created_at": "2025-08-22T10:33:38+07:00",
+    "updated_at": "2025-08-29T16:00:20+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadhil",
+        "username": "fadhil",
+        "html_url": "https://git.frys.co.id/fadhil",
+        "id": 1
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 19,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/19",
+    "title": "Implement dummy collision setup",
+    "state": "closed",
+    "created_at": "2025-08-22T10:33:05+07:00",
+    "updated_at": "2025-08-25T10:14:53+07:00",
+    "closed_at": "2025-08-22T11:16:37+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 18,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/18",
+    "title": "Import placeholder models for player car & placeholder vehicle physics",
+    "state": "closed",
+    "created_at": "2025-08-22T10:32:45+07:00",
+    "updated_at": "2025-08-25T10:14:53+07:00",
+    "closed_at": "2025-08-25T10:14:02+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 17,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/17",
+    "title": "Wireframe/sketch menu navigation flow",
+    "state": "closed",
+    "created_at": "2025-08-22T10:31:36+07:00",
+    "updated_at": "2025-10-06T15:33:37+07:00",
+    "closed_at": "2025-10-06T15:33:37+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 16,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/16",
+    "title": "Block main menu flow (start, scenario selection, quit)",
+    "state": "closed",
+    "created_at": "2025-08-22T10:31:22+07:00",
+    "updated_at": "2025-10-06T15:33:36+07:00",
+    "closed_at": "2025-10-06T15:33:36+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  }
+]

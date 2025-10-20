@@ -6,14 +6,19 @@ import {
   setSelectedNode,
   setHoverNode,
   setVisibility,
-  initializeDefaultData
+  setActiveLevel,
+  setDrilldown,
+  resetDrilldown,
+  getChildren
 } from './state.js';
 import { NODE_SIZE } from './constants.js';
-import { cloneDeep, slugify } from './utils.js';
+import { cloneDeep, slugify, titleCase } from './utils.js';
 import {
   renderScene,
   renderGraph,
   renderInspector,
+  renderFilters,
+  renderViewSwitcher,
   computeVisibility,
   applyStyles,
   updateMinimap
@@ -36,6 +41,7 @@ const elements = {
   metaOwner: document.getElementById('metaOwner'),
   metaDescription: document.getElementById('metaDescription'),
   fileName: document.getElementById('fileName'),
+  viewSwitcher: document.getElementById('viewSwitcher'),
   legend: document.getElementById('legend'),
   notesPanel: document.getElementById('notesPanel'),
   searchInput: document.getElementById('searchInput'),
@@ -60,7 +66,9 @@ const ctx = {
   handlers: {},
   panzoom: null,
   elk: null,
-  toastTimer: null
+  toastTimer: null,
+  validator: null,
+  schema: null
 };
 
 init();
@@ -68,9 +76,10 @@ init();
 async function init() {
   try {
     await loadLibraries();
+    await loadSchema();
     setupPanzoom();
     applyStoredTheme(ctx);
-    initializeDefaultData();
+    await applyTopology(defaultTopology, 'Default');
     await runLayout({ fit: true, silent: true });
     renderScene(ctx);
     bindHandlers();
@@ -87,16 +96,36 @@ async function loadLibraries() {
     { default: Panzoom },
     { default: tippy },
     { default: ELK },
-    { marked }
+    { marked },
+    { default: Ajv }
   ] = await Promise.all([
     import('https://esm.run/@panzoom/panzoom@4.5.1'),
     import('https://esm.run/tippy.js@6'),
     import('https://esm.run/elkjs@0.9.0'),
-    import('https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js')
+    import('https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.esm.js'),
+    import('https://esm.run/ajv@8/dist/2020.js')
   ]);
-  ctx.libs = { Panzoom, tippy, marked };
+  ctx.libs = { Panzoom, tippy, marked, Ajv };
   ctx.elk = new ELK();
   ctx.libs.marked.setOptions({ mangle: false, headerIds: false });
+}
+
+async function loadSchema() {
+  const response = await fetch('../schema/topology.schema.json', { cache: 'no-store' });
+  if (!response.ok) {
+    throw new Error(`Failed to load topology schema (${response.status})`);
+  }
+  const schema = await response.json();
+  const AjvClass = ctx.libs.Ajv;
+  const ajv = new AjvClass({
+    strictSchema: false,
+    allErrors: true,
+    allowUnionTypes: true
+  });
+  ajv.addFormat('uri', true);
+  ajv.addFormat('date-time', true);
+  ctx.schema = schema;
+  ctx.validator = ajv.compile(schema);
 }
 
 function bindHandlers() {
@@ -123,15 +152,58 @@ function bindHandlers() {
       showToast(`Loaded: ${file.name}`, 'info');
     } catch (error) {
       console.error(error);
-      showToast('Failed to read topology JSON', 'danger');
+      showToast(error?.message || 'Failed to read topology JSON', 'danger');
     }
   };
-
   ctx.handlers.selectNode = (nodeId, focus) => {
     setSelectedNode(nodeId);
     renderInspector(ctx);
     refreshVisibility();
     if (focus && nodeId) focusNode(nodeId, true);
+  };
+
+  ctx.handlers.onDrillInto = (nodeId) => {
+    const node = nodeId ? state.lookup.nodeById.get(nodeId) : null;
+    if (!node) return;
+
+    const level = node.level || 'high';
+    let nextLevel = state.activeLevel;
+    let announceLevel = null;
+    let targetId = nodeId;
+
+    if (level === 'high') {
+      setDrilldown('medium', node.id);
+      setDrilldown('low', null);
+      const children = getChildren(node.id);
+      if (children.length) {
+        targetId = children[0].id;
+      }
+      nextLevel = 'medium';
+    } else if (level === 'medium') {
+      if (node.parent) {
+        setDrilldown('medium', node.parent);
+      }
+      setDrilldown('low', node.id);
+      const children = getChildren(node.id);
+      if (children.length) {
+        targetId = children[0].id;
+      }
+      nextLevel = 'low';
+    } else if (level === 'low') {
+      if (node.parent) {
+        setDrilldown('low', node.parent);
+        nextLevel = 'low';
+      }
+    }
+
+    setSelectedNode(targetId);
+    const levelChanged = nextLevel !== state.activeLevel;
+    if (levelChanged) {
+      setActiveLevel(nextLevel);
+      announceLevel = nextLevel;
+    }
+    updateScene({ announceLevel });
+    if (targetId) focusNode(targetId, true);
   };
 
   ctx.handlers.hoverNode = (nodeId) => {
@@ -145,21 +217,34 @@ function bindHandlers() {
     }
   };
 
+  ctx.handlers.onLevelChange = (level) => {
+    if (!level || state.activeLevel === level) return;
+    setActiveLevel(level);
+    updateScene({ announceLevel: level });
+  };
+
+  ctx.handlers.onClearDrilldown = () => {
+    resetDrilldown();
+    updateScene();
+  };
+
   ctx.handlers.focusNode = (nodeId) => focusNode(nodeId, true);
+
   ctx.handlers.pinNode = (node) => {
-    node.layout = {
-      ...(node.layout || {}),
-      fixed: true,
-      x: Math.round(node.position?.x ?? 0),
-      y: Math.round(node.position?.y ?? 0),
-      width: Math.round(node.size?.width ?? NODE_SIZE.width),
-      height: Math.round(node.size?.height ?? NODE_SIZE.height)
-    };
+    if (!node) return;
+    node.layout = node.layout || {};
+    node.layout.fixed = true;
+    node.layout.x = Math.round(node.position?.x ?? node.layout.x ?? 0);
+    node.layout.y = Math.round(node.position?.y ?? node.layout.y ?? 0);
+    node.layout.width = Math.round(node.size?.width ?? NODE_SIZE.width);
+    node.layout.height = Math.round(node.size?.height ?? NODE_SIZE.height);
     renderInspector(ctx);
     showToast(`Pinned ${node.label}`, 'info');
   };
+
   ctx.handlers.unpinNode = (node) => {
-    if (node.layout) node.layout.fixed = false;
+    if (!node?.layout) return;
+    node.layout.fixed = false;
     renderInspector(ctx);
     showToast(`Unpinned ${node.label}`, 'info');
   };
@@ -167,6 +252,7 @@ function bindHandlers() {
   ctx.handlers.onThemeChange = () => {
     renderGraph(ctx);
     renderInspector(ctx);
+    renderViewSwitcher(ctx);
     updateMinimap(ctx);
   };
 
@@ -188,6 +274,17 @@ async function runLayout({ fit = false, silent = false } = {}) {
   renderInspector(ctx);
   updateMinimap(ctx);
   if (fit) fitGraph();
+}
+
+function updateScene({ announceLevel } = {}) {
+  renderViewSwitcher(ctx);
+  renderFilters(ctx);
+  renderGraph(ctx);
+  renderInspector(ctx);
+  updateMinimap(ctx);
+  if (announceLevel) {
+    showToast(`View: ${titleCase(announceLevel)}`, 'info');
+  }
 }
 
 function refreshVisibility() {
@@ -251,6 +348,7 @@ function toggleSpinner(visible) {
 }
 
 async function applyTopology(topology, name = '(inline)') {
+  assertValidTopology(topology, name);
   setData(topology);
   elements.fileName.textContent = name ? `Loaded: ${name}` : '';
   elements.searchInput.value = '';
@@ -312,3 +410,21 @@ function showToast(message, tone = 'info') {
   clearTimeout(ctx.toastTimer);
   ctx.toastTimer = setTimeout(() => elements.toast.classList.add('hidden'), 2200);
 }
+
+function assertValidTopology(topology, label = 'topology') {
+  if (!ctx.validator) return;
+  const valid = ctx.validator(topology);
+  if (valid) return;
+  const errors = ctx.validator.errors ?? [];
+  const detail = errors.map(formatAjvError).join('\n');
+  throw new Error(`Invalid ${label} JSON:\n${detail}`);
+}
+
+function formatAjvError(error) {
+  const path = error.instancePath ? error.instancePath : '(root)';
+  if (error.keyword === 'required') {
+    return `${path}: missing required property "${error.params.missingProperty}"`;
+  }
+  return `${path}: ${error.message ?? error.keyword}`;
+}
+

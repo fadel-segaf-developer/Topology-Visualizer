@@ -1,0 +1,159 @@
+#!/usr/bin/env node
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const BASE = process.env.GITEA_BASE || 'https://git.frys.co.id';
+const OWNER = process.env.GITEA_OWNER || 'FRYS-DEV';
+const REPO = process.env.GITEA_REPO || 'UE_FDS3';
+const TOKEN = process.env.GITEA_TOKEN;
+const LIMIT = Number.parseInt(process.env.GITEA_LIMIT || '50', 10);
+const OUT_ROOT = path.resolve('RepoExtractor/gitea-api');
+
+if (!TOKEN) {
+  console.error('GITEA_TOKEN environment variable is required.');
+  process.exit(1);
+}
+
+const timestamp = new Date().toISOString().replace(/[-:]/g, '').replace(/\..+/, 'Z');
+const outDir = path.join(OUT_ROOT, `${OWNER}_${REPO}_${timestamp}`);
+
+const headers = {
+  Accept: 'application/json',
+  Authorization: `token ${TOKEN}`
+};
+
+async function ensureDir(dir) {
+  await fs.mkdir(dir, { recursive: true });
+}
+
+async function fetchJson(url) {
+  const response = await fetch(url, { headers });
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Request failed ${response.status} ${response.statusText}: ${url}\n${body}`);
+  }
+  return response.json();
+}
+
+async function fetchPaged(apiPath, params = {}, options = {}) {
+  const limit = options.limit || LIMIT;
+  const aggregated = [];
+  let page = 1;
+  while (true) {
+    const url = new URL(`${BASE}/api/v1${apiPath}`);
+    for (const [key, value] of Object.entries(params)) {
+      url.searchParams.set(key, value);
+    }
+    url.searchParams.set('page', page);
+    url.searchParams.set('limit', limit);
+    const data = await fetchJson(url);
+    if (!Array.isArray(data)) {
+      return data;
+    }
+    aggregated.push(...data);
+    if (data.length < limit) break;
+    page += 1;
+  }
+  return aggregated;
+}
+
+async function writeJson(filePath, value) {
+  const json = JSON.stringify(value, null, 2);
+  await fs.writeFile(filePath, json, 'utf8');
+}
+
+async function exportRepository() {
+  await ensureDir(outDir);
+  console.log(`Exporting Gitea data for ${OWNER}/${REPO} to ${path.relative(process.cwd(), outDir)}`);
+
+  const repoInfo = await fetchPaged(`/repos/${OWNER}/${REPO}`);
+  await writeJson(path.join(outDir, 'repo.json'), repoInfo);
+
+  const [
+    issues,
+    pulls,
+    milestones,
+    labels,
+    releases,
+    tags,
+    branches,
+    watchers,
+    collaborators,
+    projects
+  ] = await Promise.all([
+    fetchPaged(`/repos/${OWNER}/${REPO}/issues`, { state: 'all', sort: 'created', direction: 'asc' }),
+    fetchPaged(`/repos/${OWNER}/${REPO}/pulls`, { state: 'all', sort: 'created', direction: 'asc' }),
+    fetchPaged(`/repos/${OWNER}/${REPO}/milestones`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/labels`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/releases`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/tags`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/branches`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/watchers`),
+    fetchPaged(`/repos/${OWNER}/${REPO}/collaborators`).catch(() => []),
+    fetchPaged(`/repos/${OWNER}/${REPO}/projects`).catch(() => [])
+  ]);
+
+  await Promise.all([
+    writeJson(path.join(outDir, 'issues.json'), issues),
+    writeJson(path.join(outDir, 'pulls.json'), pulls),
+    writeJson(path.join(outDir, 'milestones.json'), milestones),
+    writeJson(path.join(outDir, 'labels.json'), labels),
+    writeJson(path.join(outDir, 'releases.json'), releases),
+    writeJson(path.join(outDir, 'tags.json'), tags),
+    writeJson(path.join(outDir, 'branches.json'), branches),
+    writeJson(path.join(outDir, 'watchers.json'), watchers),
+    writeJson(path.join(outDir, 'collaborators.json'), collaborators),
+    writeJson(path.join(outDir, 'projects.json'), projects)
+  ]);
+
+  await exportIssueComments(issues);
+  await exportPullArtifacts(pulls);
+
+  await writeJson(path.join(outDir, 'manifest.json'), {
+    exported_at: new Date().toISOString(),
+    base: BASE,
+    owner: OWNER,
+    repo: REPO,
+    limit: LIMIT
+  });
+
+  console.log('Export complete.');
+}
+
+async function exportIssueComments(issues) {
+  if (!Array.isArray(issues) || !issues.length) return;
+  const commentsDir = path.join(outDir, 'issue_comments');
+  await ensureDir(commentsDir);
+
+  for (const issue of issues) {
+    if (typeof issue?.number !== 'number') continue;
+    const number = issue.number;
+    const comments = await fetchPaged(`/repos/${OWNER}/${REPO}/issues/${number}/comments`);
+    await writeJson(path.join(commentsDir, `issue_${number}_comments.json`), comments);
+  }
+}
+
+async function exportPullArtifacts(pulls) {
+  if (!Array.isArray(pulls) || !pulls.length) return;
+  const commentsDir = path.join(outDir, 'pull_comments');
+  const reviewsDir = path.join(outDir, 'pull_reviews');
+  await ensureDir(commentsDir);
+  await ensureDir(reviewsDir);
+
+  for (const pull of pulls) {
+    if (typeof pull?.number !== 'number') continue;
+    const number = pull.number;
+    const [comments, reviews] = await Promise.all([
+      fetchPaged(`/repos/${OWNER}/${REPO}/pulls/${number}/comments`).catch(() => []),
+      fetchPaged(`/repos/${OWNER}/${REPO}/pulls/${number}/reviews`).catch(() => [])
+    ]);
+    await writeJson(path.join(commentsDir, `pull_${number}_comments.json`), comments);
+    await writeJson(path.join(reviewsDir, `pull_${number}_reviews.json`), reviews);
+  }
+}
+
+exportRepository().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});
+

@@ -1,0 +1,551 @@
+[
+  {
+    "number": 106,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/106",
+    "title": "NPC(AI) behavior system",
+    "state": "closed",
+    "created_at": "2025-10-03T14:02:01+07:00",
+    "updated_at": "2025-10-03T14:10:56+07:00",
+    "closed_at": "2025-10-03T14:10:43+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 105,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/105",
+    "title": "gui-hud",
+    "state": "closed",
+    "created_at": "2025-10-03T10:14:03+07:00",
+    "updated_at": "2025-10-03T10:25:45+07:00",
+    "closed_at": "2025-10-03T10:25:31+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 104,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/104",
+    "title": "fix-pocsc1",
+    "state": "closed",
+    "created_at": "2025-10-03T09:32:25+07:00",
+    "updated_at": "2025-10-03T10:34:33+07:00",
+    "closed_at": "2025-10-03T10:31:57+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 103,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/103",
+    "title": "Implement temporary speed and RPM HUD for POC",
+    "state": "closed",
+    "created_at": "2025-10-02T14:20:05+07:00",
+    "updated_at": "2025-10-06T15:28:35+07:00",
+    "closed_at": "2025-10-06T15:28:35+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 102,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/102",
+    "title": "Envi",
+    "state": "closed",
+    "created_at": "2025-10-02T11:54:46+07:00",
+    "updated_at": "2025-10-02T16:12:38+07:00",
+    "closed_at": "2025-10-02T16:12:35+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 101,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/101",
+    "title": "Implement Brief GUI only for POC",
+    "state": "closed",
+    "created_at": "2025-10-02T10:46:10+07:00",
+    "updated_at": "2025-10-06T15:28:33+07:00",
+    "closed_at": "2025-10-06T15:28:32+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 100,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/100",
+    "title": "spawner-rev",
+    "state": "closed",
+    "created_at": "2025-10-02T10:42:40+07:00",
+    "updated_at": "2025-10-02T10:44:28+07:00",
+    "closed_at": "2025-10-02T10:44:25+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 99,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/99",
+    "title": "Pagar",
+    "state": "closed",
+    "created_at": "2025-10-02T09:34:31+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:43:18+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 98,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/98",
+    "title": "spawner bp",
+    "state": "closed",
+    "created_at": "2025-10-01T11:12:14+07:00",
+    "updated_at": "2025-10-01T11:13:44+07:00",
+    "closed_at": "2025-10-01T11:13:40+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 97,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/97",
+    "title": "added avanza bp, camera component",
+    "state": "closed",
+    "created_at": "2025-09-30T15:27:22+07:00",
+    "updated_at": "2025-10-06T14:50:46+07:00",
+    "closed_at": "2025-09-30T15:54:14+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 96,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/96",
+    "title": "3D_Asset_add",
+    "state": "closed",
+    "created_at": "2025-09-30T09:49:54+07:00",
+    "updated_at": "2025-09-30T10:39:42+07:00",
+    "closed_at": "2025-09-30T10:39:30+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 95,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/95",
+    "title": "vehicle-config",
+    "state": "closed",
+    "created_at": "2025-09-26T15:41:04+07:00",
+    "updated_at": "2025-09-30T10:38:10+07:00",
+    "closed_at": "2025-09-29T11:45:25+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 94,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/94",
+    "title": "3D_asset_add",
+    "state": "closed",
+    "created_at": "2025-09-25T15:42:45+07:00",
+    "updated_at": "2025-09-25T16:19:09+07:00",
+    "closed_at": "2025-09-25T16:19:06+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 93,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/93",
+    "title": "NPC(AI) behavior system",
+    "state": "closed",
+    "created_at": "2025-09-24T10:29:35+07:00",
+    "updated_at": "2025-10-06T14:51:46+07:00",
+    "closed_at": "2025-10-06T14:51:46+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadelsegaf",
+        "username": "fadelsegaf",
+        "html_url": "https://git.frys.co.id/fadelsegaf",
+        "id": 6
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 92,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/92",
+    "title": "added pcg to spawn along road spline",
+    "state": "closed",
+    "created_at": "2025-09-23T14:43:43+07:00",
+    "updated_at": "2025-09-29T10:35:52+07:00",
+    "closed_at": "2025-09-29T10:35:30+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 90,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/90",
+    "title": "Static Mesh import",
+    "state": "closed",
+    "created_at": "2025-09-22T13:39:54+07:00",
+    "updated_at": "2025-09-23T11:42:12+07:00",
+    "closed_at": "2025-09-23T10:05:31+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 89,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/89",
+    "title": "LaneChecker - init #86",
+    "state": "closed",
+    "created_at": "2025-09-19T15:39:41+07:00",
+    "updated_at": "2025-09-23T10:16:21+07:00",
+    "closed_at": "2025-09-23T10:15:08+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 88,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/88",
+    "title": "Implement engine stall",
+    "state": "closed",
+    "created_at": "2025-09-18T10:19:26+07:00",
+    "updated_at": "2025-10-06T15:28:31+07:00",
+    "closed_at": "2025-10-06T15:28:31+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 87,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/87",
+    "title": "added data validation utility blueprint",
+    "state": "closed",
+    "created_at": "2025-09-17T16:49:01+07:00",
+    "updated_at": "2025-10-07T11:05:59+07:00",
+    "closed_at": "2025-10-07T11:05:59+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 86,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/86",
+    "title": "Lane Change Algorithm Using Tangents Interpolation for Spline Segments",
+    "state": "closed",
+    "created_at": "2025-09-17T09:33:10+07:00",
+    "updated_at": "2025-10-03T13:57:18+07:00",
+    "closed_at": "2025-09-26T10:42:29+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadelsegaf",
+        "username": "fadelsegaf",
+        "html_url": "https://git.frys.co.id/fadelsegaf",
+        "id": 6
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 85,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/85",
+    "title": "improve-input-system",
+    "state": "closed",
+    "created_at": "2025-09-16T13:46:13+07:00",
+    "updated_at": "2025-09-16T14:15:00+07:00",
+    "closed_at": "2025-09-16T14:14:46+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 84,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/84",
+    "title": "Road Modification",
+    "state": "closed",
+    "created_at": "2025-09-15T14:53:59+07:00",
+    "updated_at": "2025-10-07T13:25:26+07:00",
+    "closed_at": "2025-09-16T14:20:01+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 83,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/83",
+    "title": "enable advance/batch renamer unreal plugin to project",
+    "state": "closed",
+    "created_at": "2025-09-12T15:00:09+07:00",
+    "updated_at": "2025-09-12T15:02:40+07:00",
+    "closed_at": "2025-09-12T15:02:21+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 82,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/82",
+    "title": "POC_Envi",
+    "state": "closed",
+    "created_at": "2025-09-12T10:47:30+07:00",
+    "updated_at": "2025-09-12T14:03:40+07:00",
+    "closed_at": "2025-09-12T14:03:27+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 81,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/81",
+    "title": "added new DummyCar vehicle. added base material for simple color, glass, emissive color, and mirror  #22",
+    "state": "closed",
+    "created_at": "2025-09-12T09:34:06+07:00",
+    "updated_at": "2025-10-06T14:50:46+07:00",
+    "closed_at": "2025-09-12T13:41:22+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  }
+]

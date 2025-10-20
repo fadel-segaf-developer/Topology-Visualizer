@@ -1,0 +1,25 @@
+{
+  "name": "topology-visualizer",
+  "version": "1.0.0",
+  "description": "An interactive, JSON-driven topology visualiser for the FDS Traffic Management Suite. The tool is intentionally framework-free, relying on Tailwind, ES modules, and a few lightweight libraries (Panzoom, ELK, Tippy, Marked) loaded from CDN.",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/tailwind.css -o ./dist/tailwind.css --minify",
+    "build": "npm run build:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadel-segaf-developer/Topology-Visualizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fadel-segaf-developer/Topology-Visualizer/issues"
+  },
+  "homepage": "https://github.com/fadel-segaf-developer/Topology-Visualizer#readme",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "tailwindcss": "^3.4.13"
+  }
+}

@@ -1,0 +1,618 @@
+[
+  {
+    "number": 131,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/131",
+    "title": "rename interface, and fix engine off when start from keyboard",
+    "state": "closed",
+    "created_at": "2025-10-20T13:15:27+07:00",
+    "updated_at": "2025-10-20T13:29:00+07:00",
+    "closed_at": "2025-10-20T13:28:58+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 130,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/130",
+    "title": "input-system",
+    "state": "closed",
+    "created_at": "2025-10-17T13:43:57+07:00",
+    "updated_at": "2025-10-20T11:16:32+07:00",
+    "closed_at": "2025-10-20T11:16:29+07:00",
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 129,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/129",
+    "title": "TMS-upgrade",
+    "state": "closed",
+    "created_at": "2025-10-14T16:55:09+07:00",
+    "updated_at": "2025-10-14T16:59:58+07:00",
+    "closed_at": "2025-10-14T16:59:56+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 128,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/128",
+    "title": "update gitignore, optimize level and objects",
+    "state": "closed",
+    "created_at": "2025-10-13T14:38:20+07:00",
+    "updated_at": "2025-10-13T16:52:28+07:00",
+    "closed_at": "2025-10-13T16:52:23+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 127,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/127",
+    "title": "ENVI",
+    "state": "closed",
+    "created_at": "2025-10-10T10:05:56+07:00",
+    "updated_at": "2025-10-14T16:33:37+07:00",
+    "closed_at": "2025-10-14T16:33:34+07:00",
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 126,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/126",
+    "title": "TMS Platform Upgrade – Module Intro & Runtime/Editor Split",
+    "state": "open",
+    "created_at": "2025-10-09T15:49:38+07:00",
+    "updated_at": "2025-10-14T14:40:41+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadelsegaf",
+        "username": "fadelsegaf",
+        "html_url": "https://git.frys.co.id/fadelsegaf",
+        "id": 6
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 125,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/125",
+    "title": "Implement device input to module",
+    "state": "open",
+    "created_at": "2025-10-09T15:49:37+07:00",
+    "updated_at": "2025-10-20T11:16:32+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "pandu",
+      "username": "pandu",
+      "html_url": "https://git.frys.co.id/pandu",
+      "id": 3
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 124,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/124",
+    "title": "Rel kereta, fly over, terowongan, jalan gang (modular)",
+    "state": "open",
+    "created_at": "2025-10-09T11:04:38+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 123,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/123",
+    "title": "added multi row spawner script and BP",
+    "state": "closed",
+    "created_at": "2025-10-08T13:52:54+07:00",
+    "updated_at": "2025-10-08T13:54:51+07:00",
+    "closed_at": "2025-10-08T13:54:38+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 122,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/122",
+    "title": "Blocking layout Skenario",
+    "state": "open",
+    "created_at": "2025-10-07T13:33:58+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 121,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/121",
+    "title": "Rumah Ibadah (Gereja dan Masjid)",
+    "state": "open",
+    "created_at": "2025-10-07T13:32:54+07:00",
+    "updated_at": "2025-10-13T15:05:56+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 120,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/120",
+    "title": "Gedung Bimbel",
+    "state": "open",
+    "created_at": "2025-10-07T13:32:16+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 119,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/119",
+    "title": "Restoran",
+    "state": "open",
+    "created_at": "2025-10-07T13:31:16+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 118,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/118",
+    "title": "Klinik",
+    "state": "open",
+    "created_at": "2025-10-07T13:30:18+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 117,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/117",
+    "title": "Rumah 2 tingkat",
+    "state": "open",
+    "created_at": "2025-10-07T13:29:59+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 116,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/116",
+    "title": "Ruko Modern",
+    "state": "open",
+    "created_at": "2025-10-07T13:29:35+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "yogi",
+        "username": "yogi",
+        "html_url": "https://git.frys.co.id/yogi",
+        "id": 9
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 115,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/115",
+    "title": "Rumah Warung",
+    "state": "open",
+    "created_at": "2025-10-07T13:29:08+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "alqo",
+        "username": "alqo",
+        "html_url": "https://git.frys.co.id/alqo",
+        "id": 10
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 114,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/114",
+    "title": "Rumah 1 Tingkat (2 model)",
+    "state": "open",
+    "created_at": "2025-10-07T13:28:22+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "alqo",
+        "username": "alqo",
+        "html_url": "https://git.frys.co.id/alqo",
+        "id": 10
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 113,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/113",
+    "title": "3D Asset List Alpha",
+    "state": "open",
+    "created_at": "2025-10-07T13:27:37+07:00",
+    "updated_at": "2025-10-13T15:05:56+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "iqbal",
+      "username": "iqbal",
+      "html_url": "https://git.frys.co.id/iqbal",
+      "id": 12
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 112,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/112",
+    "title": "test initial workflow",
+    "state": "closed",
+    "created_at": "2025-10-07T11:11:27+07:00",
+    "updated_at": "2025-10-08T10:16:39+07:00",
+    "closed_at": "2025-10-08T10:16:24+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 111,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/111",
+    "title": "BLOCKING Flyover, Tunnel and Train Track",
+    "state": "open",
+    "created_at": "2025-10-07T11:09:39+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "surya",
+      "username": "surya",
+      "html_url": "https://git.frys.co.id/surya",
+      "id": 7
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 5,
+      "title": "4 - Alpha (Demo early)",
+      "due_on": "2025-11-24T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 110,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/110",
+    "title": "mat-optimize",
+    "state": "closed",
+    "created_at": "2025-10-07T09:43:03+07:00",
+    "updated_at": "2025-10-07T09:49:11+07:00",
+    "closed_at": "2025-10-07T09:49:09+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 109,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/109",
+    "title": "Material optimization",
+    "state": "open",
+    "created_at": "2025-10-07T09:38:23+07:00",
+    "updated_at": "2025-10-07T09:39:39+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 108,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/108",
+    "title": "Adding guards for runtime build",
+    "state": "closed",
+    "created_at": "2025-10-06T12:30:42+07:00",
+    "updated_at": "2025-10-06T12:32:06+07:00",
+    "closed_at": "2025-10-06T12:32:04+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 107,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/pulls/107",
+    "title": "update-traffic-light",
+    "state": "closed",
+    "created_at": "2025-10-03T16:14:48+07:00",
+    "updated_at": "2025-10-03T16:16:13+07:00",
+    "closed_at": "2025-10-03T16:15:44+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  }
+]

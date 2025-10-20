@@ -4,19 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FDS TMS Topology Designer</title>
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230f172a'/%3E%3Cpath%20d='M18%2020h28L32%2044%2018%2020z'%20fill='%2338bdf8'/%3E%3Ccircle%20cx='22'%20cy='24'%20r='6'%20fill='%2338bdf8'/%3E%3Ccircle%20cx='42'%20cy='24'%20r='6'%20fill='%23facc15'/%3E%3Ccircle%20cx='32'%20cy='38'%20r='5'%20fill='%2394a3b8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="dist/tailwind.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.css">
   <link rel="stylesheet" href="styles.css">
@@ -31,6 +20,7 @@
       <div class="text-xs text-slate-400" id="metaVersion"></div>
       <div class="text-xs text-slate-400" id="metaOwner"></div>
       <div class="text-xs text-slate-500" id="fileName"></div>
+      <div class="flex items-center gap-2 ml-6" id="viewSwitcher"></div>
       <div class="ml-auto flex items-center gap-2">
         <button id="themeToggle" class="control-button">Light Mode</button>
         <button id="layoutBtn" class="control-button">Re-run Layout</button>

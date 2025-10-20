@@ -1,0 +1,385 @@
+[
+  {
+    "number": 80,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/80",
+    "title": "Foliage (Unreal Asset",
+    "state": "closed",
+    "created_at": "2025-09-11T11:11:16+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:47:49+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 79,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/79",
+    "title": "Mobil Avanza Interior",
+    "state": "open",
+    "created_at": "2025-09-11T11:10:53+07:00",
+    "updated_at": "2025-10-13T15:05:56+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 78,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/78",
+    "title": "Mobil Avanza Exterior",
+    "state": "closed",
+    "created_at": "2025-09-11T11:10:29+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:47:53+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 77,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/77",
+    "title": "Sekolah",
+    "state": "closed",
+    "created_at": "2025-09-11T11:09:55+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:44:11+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "yogi",
+        "username": "yogi",
+        "html_url": "https://git.frys.co.id/yogi",
+        "id": 9
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 76,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/76",
+    "title": "Minimarket",
+    "state": "closed",
+    "created_at": "2025-09-11T11:09:30+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:47:46+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 75,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/75",
+    "title": "SPBU",
+    "state": "open",
+    "created_at": "2025-09-11T11:09:03+07:00",
+    "updated_at": "2025-10-13T15:05:56+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 74,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/74",
+    "title": "Pos Gatur Lantas",
+    "state": "closed",
+    "created_at": "2025-09-11T11:08:34+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:44:05+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 73,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/73",
+    "title": "Bangunan Indonesia 25 model",
+    "state": "open",
+    "created_at": "2025-09-11T11:07:54+07:00",
+    "updated_at": "2025-10-14T13:59:16+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "rifqi.al",
+        "username": "rifqi.al",
+        "html_url": "https://git.frys.co.id/rifqi.al",
+        "id": 11
+      },
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      },
+      {
+        "login": "yogi",
+        "username": "yogi",
+        "html_url": "https://git.frys.co.id/yogi",
+        "id": 9
+      },
+      {
+        "login": "alqo",
+        "username": "alqo",
+        "html_url": "https://git.frys.co.id/alqo",
+        "id": 10
+      },
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      },
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 72,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/72",
+    "title": "Markah Jalan",
+    "state": "open",
+    "created_at": "2025-09-11T11:07:18+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 71,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/71",
+    "title": "Jalanan modular, Trotoar, Pembatas Jalan & Separator Jalan",
+    "state": "closed",
+    "created_at": "2025-09-11T11:06:41+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:47:44+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 70,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/70",
+    "title": "Jalan ( potongan jalan modular, sambungan jalan persimpangan)",
+    "state": "closed",
+    "created_at": "2025-09-11T11:03:40+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:44:28+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 69,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/69",
+    "title": "Tanda Jalan ( 3 model berbeda)",
+    "state": "closed",
+    "created_at": "2025-09-11T11:03:02+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:46:51+07:00",
+    "author": {
+      "login": "yogi",
+      "username": "yogi",
+      "html_url": "https://git.frys.co.id/yogi",
+      "id": 9
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": {
+      "id": 3,
+      "title": "3 - POC",
+      "due_on": "2025-10-02T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  }
+]

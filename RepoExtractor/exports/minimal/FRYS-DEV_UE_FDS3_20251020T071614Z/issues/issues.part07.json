@@ -1,0 +1,367 @@
+[
+  {
+    "number": 14,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/14",
+    "title": "Create documentation about scenario workflow (flow, assets, NPC behavior)",
+    "state": "open",
+    "created_at": "2025-08-22T10:26:58+07:00",
+    "updated_at": "2025-09-26T10:46:22+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 13,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/13",
+    "title": "Define scenario flow diagram (start point, key checkpoints, NPC roles)",
+    "state": "closed",
+    "created_at": "2025-08-22T10:26:24+07:00",
+    "updated_at": "2025-10-06T14:44:16+07:00",
+    "closed_at": "2025-10-06T14:44:16+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 12,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/12",
+    "title": "Define scenario flow diagram: start point, key checkpoints, NPC roles",
+    "state": "open",
+    "created_at": "2025-08-22T10:16:44+07:00",
+    "updated_at": "2025-09-26T10:46:22+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "david",
+        "username": "david",
+        "html_url": "https://git.frys.co.id/david",
+        "id": 8
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 11,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/11",
+    "title": "Manage 3D asset creation & divide tasks among artists",
+    "state": "closed",
+    "created_at": "2025-08-22T10:10:34+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:45:34+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "iqbal",
+        "username": "iqbal",
+        "html_url": "https://git.frys.co.id/iqbal",
+        "id": 12
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 10,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/10",
+    "title": "Assign placeholder materials (solid colors)",
+    "state": "closed",
+    "created_at": "2025-08-22T10:08:59+07:00",
+    "updated_at": "2025-10-06T14:46:31+07:00",
+    "closed_at": "2025-10-06T14:46:31+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 9,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/9",
+    "title": "Create overall graphics strategy (LOD definitions, performance targets, art direction guidelines)",
+    "state": "closed",
+    "created_at": "2025-08-22T10:08:30+07:00",
+    "updated_at": "2025-10-06T14:46:29+07:00",
+    "closed_at": "2025-10-06T14:46:29+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 8,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/8",
+    "title": "Create rough environment map (roads, intersections, terrain volumes)",
+    "state": "closed",
+    "created_at": "2025-08-22T10:07:28+07:00",
+    "updated_at": "2025-10-13T15:06:02+07:00",
+    "closed_at": "2025-10-06T14:46:28+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "surya",
+        "username": "surya",
+        "html_url": "https://git.frys.co.id/surya",
+        "id": 7
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 7,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/7",
+    "title": "Backlog Filling {Blocking}",
+    "state": "closed",
+    "created_at": "2025-08-22T09:50:26+07:00",
+    "updated_at": "2025-10-06T14:51:34+07:00",
+    "closed_at": "2025-10-06T14:51:34+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "fadelsegaf",
+        "username": "fadelsegaf",
+        "html_url": "https://git.frys.co.id/fadelsegaf",
+        "id": 6
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 6,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/6",
+    "title": "Build Automation Setup",
+    "state": "open",
+    "created_at": "2025-08-22T09:49:04+07:00",
+    "updated_at": "2025-08-29T15:53:50+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 5,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/5",
+    "title": "Hardware I/O Integration Preparations",
+    "state": "open",
+    "created_at": "2025-08-22T09:48:18+07:00",
+    "updated_at": "2025-08-29T15:54:08+07:00",
+    "closed_at": null,
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "pandu",
+        "username": "pandu",
+        "html_url": "https://git.frys.co.id/pandu",
+        "id": 3
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 4,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/4",
+    "title": "Unreal Project Setup",
+    "state": "closed",
+    "created_at": "2025-08-22T09:47:45+07:00",
+    "updated_at": "2025-08-29T15:46:12+07:00",
+    "closed_at": "2025-08-22T11:16:26+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": {
+      "id": 4,
+      "title": "2 - Blockout",
+      "due_on": "2025-09-04T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 3,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/3",
+    "title": "Setup Project Repository & Branching Strategy",
+    "state": "closed",
+    "created_at": "2025-08-22T09:44:20+07:00",
+    "updated_at": "2025-09-11T16:29:58+07:00",
+    "closed_at": "2025-09-11T16:29:58+07:00",
+    "author": {
+      "login": "fadelsegaf",
+      "username": "fadelsegaf",
+      "html_url": "https://git.frys.co.id/fadelsegaf",
+      "id": 6
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": null,
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 2,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/2",
+    "title": "Setup Git repo + LFS",
+    "state": "closed",
+    "created_at": "2025-08-20T10:40:57+07:00",
+    "updated_at": "2025-08-29T15:46:38+07:00",
+    "closed_at": "2025-08-22T11:16:24+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": {
+      "id": 4,
+      "title": "2 - Blockout",
+      "due_on": "2025-09-04T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  },
+  {
+    "number": 1,
+    "html_url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3/issues/1",
+    "title": "Initialize UE5 project",
+    "state": "closed",
+    "created_at": "2025-08-20T10:40:20+07:00",
+    "updated_at": "2025-08-29T15:46:30+07:00",
+    "closed_at": "2025-08-22T11:16:23+07:00",
+    "author": {
+      "login": "rafid",
+      "username": "rafid",
+      "html_url": "https://git.frys.co.id/rafid",
+      "id": 5
+    },
+    "assignees": [
+      {
+        "login": "rafid",
+        "username": "rafid",
+        "html_url": "https://git.frys.co.id/rafid",
+        "id": 5
+      }
+    ],
+    "milestone": {
+      "id": 4,
+      "title": "2 - Blockout",
+      "due_on": "2025-09-04T23:59:59+07:00",
+      "state": "open"
+    },
+    "repository": "FRYS-DEV/UE_FDS3"
+  }
+]

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "name": "FDS_TMS Topology — Full",
+    "name": "FDS_TMS Topology -- Full",
     "version": "2025-10-16",
     "description": "Complete view of the TMS plugin: modules, bridges, controllers, subsystems, and external scoring."
   },
@@ -10,7 +10,7 @@
     { "id": "worldsub", "label": "WorldSubsystem", "x": 60, "y": 360, "color": "border-blue-400/70 bg-blue-500/10" },
 
     { "id": "runtime", "label": "FDS_TMS_TrafficRuntime", "x": 320, "y": 80, "color": "border-emerald-400/70 bg-emerald-500/10" },
-    { "id": "manager", "label": "TrafficManager (≤1ms)", "x": 320, "y": 220, "color": "border-cyan-400/70 bg-cyan-500/10" },
+    { "id": "manager", "label": "TrafficManager (<=1ms)", "x": 320, "y": 220, "color": "border-cyan-400/70 bg-cyan-500/10" },
     { "id": "laneChecker", "label": "LaneCheckerComponent", "x": 320, "y": 360, "color": "border-emerald-400/70 bg-emerald-500/10" },
 
     { "id": "signals", "label": "FDS_TMS_SignalsRuntime", "x": 580, "y": 80, "color": "border-pink-400/70 bg-pink-500/10" },
@@ -25,7 +25,7 @@
     { "id": "scoringBridge", "label": "TMS_ScoringBridge", "x": 1080, "y": 220, "color": "border-amber-400/70 bg-amber-500/10" },
     { "id": "scoring", "label": "FDS_Scoring (external plugin)", "x": 1300, "y": 220, "color": "border-rose-400/70 bg-rose-500/10" },
 
-    { "id": "trafficLOD", "label": "Traffic LOD / Spawn–Despawn", "x": 1080, "y": 360, "color": "border-emerald-400/70 bg-emerald-500/10" },
+    { "id": "trafficLOD", "label": "Traffic LOD / Spawn-Despawn", "x": 1080, "y": 360, "color": "border-emerald-400/70 bg-emerald-500/10" },
     { "id": "peds", "label": "Pedestrian Manager", "x": 1300, "y": 360, "color": "border-emerald-400/70 bg-emerald-500/10" }
   ],
   "edges": [

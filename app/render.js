@@ -1,16 +1,21 @@
-import { TYPE_STYLES, STATUS_TONES, ICON_SVGS } from './constants.js';
+﻿import { TYPE_STYLES, STATUS_TONES, ICON_SVGS } from './constants.js';
 import {
   state,
   getLookup,
   getIntentColor,
   setDom,
   setVisibility,
-  resetVisibility
+  getActiveLevel,
+  getDrilldownPath,
+  getChildren,
+  isNodeInActiveLevel,
+  isEdgeInActiveLevel
 } from './state.js';
 import { escapeHtml, titleCase } from './utils.js';
 
 export function renderScene(ctx) {
   renderMeta(ctx);
+  renderViewSwitcher(ctx);
   renderFilters(ctx);
   renderLegend(ctx);
   renderNotes(ctx);
@@ -35,13 +40,16 @@ export function renderGraph(ctx) {
   const nodeDom = new Map();
   const edgeDom = new Map();
 
-  const nodes = state.data?.nodes ?? [];
-  const edges = state.data?.edges ?? [];
+  const nodes = (state.data?.nodes ?? []).filter(isNodeInActiveLevel);
+  const visibleIds = new Set(nodes.map((node) => node.id));
+  const edges = (state.data?.edges ?? []).filter(isEdgeInActiveLevel);
 
   edges.forEach((edge, index) => {
     const source = getLookup().nodeById.get(edge.from);
     const target = getLookup().nodeById.get(edge.to);
-    if (!source?.position || !target?.position) return;
+    if (!source || !target) return;
+    if (!visibleIds.has(source.id) || !visibleIds.has(target.id)) return;
+    if (!source.position || !target.position) return;
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     const key = edge.id || `${edge.from}__${edge.to}__${index}`;
     path.setAttribute('d', buildEdgePath(source, target));
@@ -49,6 +57,7 @@ export function renderGraph(ctx) {
     path.setAttribute('marker-end', 'url(#edge-arrow)');
     path.dataset.key = key;
     path.dataset.intent = edge.intent || 'link';
+    path.dataset.level = edge.level || source?.level || 'high';
     path.classList.add('graph-edge');
     elements.edgeLayer.appendChild(path);
     edgeDom.set(key, { element: path, edge });
@@ -62,6 +71,7 @@ export function renderGraph(ctx) {
     div.dataset.id = node.id;
     div.dataset.type = node.type || 'component';
     div.dataset.group = node.group || '';
+    div.dataset.level = node.level || 'high';
     div.style.transform = `translate(${node.position.x}px, ${node.position.y}px)`;
     div.style.width = `${node.size?.width ?? 260}px`;
     div.style.minHeight = `${node.size?.height ?? 120}px`;
@@ -142,6 +152,7 @@ export function renderInspector(ctx) {
   const statusBadge = node.status?.label
     ? `<span class="status-badge ${STATUS_TONES[node.status.tone] || STATUS_TONES.neutral}">${escapeHtml(node.status.label)}</span>`
     : '';
+  const levelBadge = `<span class="level-pill level-${node.level || 'high'}">${escapeHtml(titleCase(node.level || 'high'))}</span>`;
   const metrics = node.metrics?.length
     ? `<div class="mt-4 grid grid-cols-1 gap-2">${node.metrics.map((metric) => `<div class="metric-pill"><strong>${escapeHtml(metric.value || '-')}</strong><span>${escapeHtml(metric.label || '')}</span></div>`).join('')}</div>`
     : '';
@@ -149,40 +160,69 @@ export function renderInspector(ctx) {
     ? `<div class="mt-4 flex flex-wrap gap-2">${node.tags.map((tag) => `<span class="tag-chip">${escapeHtml(tag)}</span>`).join('')}</div>`
     : '';
   const links = node.links?.length
-    ? `<div class="mt-4 space-y-2">${node.links.map((link) => `<a class="neighbor-link panzoom-exclude" href="${link.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label || link.url)}</a>`).join('')}</div>`
+    ? `<div class="mt-5 space-y-2">${node.links.map((link) => `<a class="neighbor-link panzoom-exclude" href="${link.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label || link.url)}</a>`).join('')}</div>`
     : '';
   const neighbors = buildNeighborMarkup(node.id);
+  const childNodes = getChildren(node.id);
+  const hasChildren = childNodes.length > 0;
+  const containedMarkup = buildContainedMarkup(node);
   const detailHtml = node.details ? ctx.libs.marked.parse(node.details) : '<p class="text-sm text-slate-500 italic">No additional details documented.</p>';
   const pinButton = node.layout?.fixed
     ? '<button type="button" class="btn-ghost panzoom-exclude" data-action="unpin-node">Unpin</button>'
     : '<button type="button" class="btn-ghost panzoom-exclude" data-action="pin-node">Pin Position</button>';
+  const workBadges = buildNodeWorkBadges(node);
+  const sourceMarkup = buildSourceMarkup(node.source);
+  const workMarkup = buildWorkSection(node.work);
+  const insightsMarkup = buildInsightsMarkup(node.insights);
+  const exploreButton = hasChildren && (node.level === 'high' || node.level === 'medium')
+    ? `<button type="button" class="btn-secondary panzoom-exclude" data-action="drill-into" data-node="${node.id}">Inspect ${escapeHtml(node.level === 'high' ? 'medium-level modules' : 'low-level components')}</button>`
+    : '';
 
   ctx.elements.inspectorTitle.textContent = node.label;
   ctx.elements.inspectorBody.innerHTML = `
-    <div class="flex items-center justify-between">
-      <div class="type-chip" style="color:${typeStyle.accent};border-color:${typeStyle.border};">${escapeHtml(typeStyle.label)}</div>
-      ${statusBadge}
+    <div class="flex items-center justify-between gap-3 flex-wrap">
+      <div class="flex items-center gap-2 flex-wrap">
+        ${levelBadge}
+        <span class="type-chip" style="color:${typeStyle.accent};border-color:${typeStyle.border};">${escapeHtml(typeStyle.label)}</span>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        ${workBadges}
+        ${statusBadge}
+      </div>
     </div>
     <div class="mt-3 text-sm text-slate-300 leading-relaxed">${escapeHtml(node.summary || '')}</div>
+    ${containedMarkup}
     <div class="mt-3 prose prose-invert prose-sm">${detailHtml}</div>
     ${metrics}
     ${tags}
+    ${sourceMarkup}
+    ${workMarkup}
+    ${insightsMarkup}
     ${neighbors}
     ${links}
     <div class="mt-5 flex flex-wrap gap-2">
       <button type="button" class="btn-secondary panzoom-exclude" data-action="focus-node">Focus</button>
+      ${exploreButton}
       ${pinButton}
     </div>
   `;
 
   ctx.elements.inspectorBody.querySelectorAll('[data-node-ref]').forEach((button) => {
-    button.addEventListener('click', (event) => {
-      const peer = event.currentTarget.dataset.nodeRef;
-      ctx.handlers.selectNode(peer, true);
-    });
+    const targetId = button.dataset.nodeRef;
+    const action = button.dataset.action;
+    if (!targetId) return;
+    if (action === 'drill-child') {
+      button.addEventListener('click', () => {
+        ctx.handlers.onDrillInto?.(targetId);
+      });
+    } else {
+      button.addEventListener('click', () => ctx.handlers.selectNode(targetId, true));
+    }
   });
   const focusBtn = ctx.elements.inspectorBody.querySelector('[data-action="focus-node"]');
   focusBtn?.addEventListener('click', () => ctx.handlers.focusNode(node.id));
+  const drillBtn = ctx.elements.inspectorBody.querySelector('[data-action="drill-into"]');
+  drillBtn?.addEventListener('click', () => ctx.handlers.onDrillInto?.(node.id));
   const pinBtn = ctx.elements.inspectorBody.querySelector('[data-action="pin-node"]');
   pinBtn?.addEventListener('click', () => ctx.handlers.pinNode(node));
   const unpinBtn = ctx.elements.inspectorBody.querySelector('[data-action="unpin-node"]');
@@ -193,8 +233,43 @@ export function renderMeta(ctx) {
   const meta = state.data?.meta ?? {};
   ctx.elements.metaTitle.textContent = meta.name || 'Topology';
   ctx.elements.metaVersion.textContent = meta.version ? `Version ${meta.version}` : '';
-  ctx.elements.metaOwner.textContent = meta.owner ? `Owner • ${meta.owner}` : '';
+  ctx.elements.metaOwner.textContent = meta.owner ? `Owner | ${meta.owner}` : '';
   ctx.elements.metaDescription.textContent = meta.description || '';
+}
+
+export function renderViewSwitcher(ctx) {
+  const container = ctx.elements.viewSwitcher;
+  if (!container) return;
+  const modes = state.data?.meta?.viewModes ?? ['high', 'medium', 'low'];
+  const active = getActiveLevel();
+  const buttons = modes.map((level) => {
+    const isActive = level === active;
+    return `
+      <button
+        type="button"
+        class="view-toggle ${isActive ? 'is-active' : ''}"
+        data-level="${level}"
+        aria-pressed="${isActive}"
+      >
+        ${escapeHtml(titleCase(level))}
+      </button>
+    `;
+  }).join('');
+  const focusTrail = buildFocusTrail(getDrilldownPath());
+  container.innerHTML = `${buttons}${focusTrail}`;
+  container.querySelectorAll('[data-node-ref]').forEach((button) => {
+    const nodeId = button.dataset.nodeRef;
+    const action = button.dataset.action;
+    if (!nodeId) return;
+    if (action === 'drill-child') {
+      button.addEventListener('click', () => ctx.handlers.onDrillInto?.(nodeId));
+    } else {
+      button.addEventListener('click', () => ctx.handlers.selectNode(nodeId, true));
+    }
+  });
+  container.querySelector('[data-action="clear-focus"]')?.addEventListener('click', () => {
+    ctx.handlers.onClearDrilldown();
+  });
 }
 
 export function renderFilters(ctx) {
@@ -254,6 +329,10 @@ export function computeVisibility() {
   const edgeInfo = new Map();
 
   (state.data?.nodes ?? []).forEach((node) => {
+    if (!isNodeInActiveLevel(node)) {
+      nodeInfo.set(node.id, { matches: false });
+      return;
+    }
     const matchesSearch = !term || [node.label, node.summary, node.group, ...(node.tags || [])]
       .some((value) => value && String(value).toLowerCase().includes(term));
     const matchesType = type === 'all' || node.type === type;
@@ -263,6 +342,10 @@ export function computeVisibility() {
 
   (state.data?.edges ?? []).forEach((edge, index) => {
     const key = edge.id || `${edge.from}__${edge.to}__${index}`;
+    if (!isEdgeInActiveLevel(edge)) {
+      edgeInfo.set(key, { matches: false });
+      return;
+    }
     const matchesIntent = intent === 'all' || edge.intent === intent;
     edgeInfo.set(key, { matches: matchesIntent });
   });
@@ -341,6 +424,57 @@ function renderMetaPlaceholder(element, text) {
   element.textContent = text || '';
 }
 
+function buildFocusTrail(path) {
+  if (!Array.isArray(path) || !path.length) return '';
+  const crumbs = path
+    .map((node) => `
+      <button type="button" class="focus-chip panzoom-exclude" data-node-ref="${node.id}" data-action="drill-child">
+        ${escapeHtml(node.label || node.id)}
+      </button>
+    `)
+    .join('<span class="focus-sep">›</span>');
+  return `
+    <div class="view-focus">
+      <span class="view-focus-label">Focus:</span>
+      ${crumbs}
+      <button type="button" class="focus-clear panzoom-exclude" data-action="clear-focus">Reset</button>
+    </div>
+  `;
+}
+
+function buildContainedMarkup(node) {
+  const children = getChildren(node.id);
+  if (!Array.isArray(children) || !children.length) return '';
+  const label =
+    (node.level || 'high') === 'high'
+      ? 'Medium-level modules'
+      : (node.level || 'medium') === 'medium'
+        ? 'Low-level nodes'
+        : 'Contained nodes';
+  const items = children
+    .slice()
+    .sort((a, b) => (a.label || '').localeCompare(b.label || ''))
+    .slice(0, 8)
+    .map((child) => `
+      <button type="button" class="focus-chip panzoom-exclude" data-node-ref="${child.id}" data-action="drill-child">
+        ${escapeHtml(child.label || child.id)}
+      </button>
+    `)
+    .join('');
+  const extra = children.length > 8
+    ? `<span class="focus-chip focus-chip-muted">+${children.length - 8} more</span>`
+    : '';
+  return `
+    <div class="mt-4">
+      <div class="sidebar-section-title mb-2">${escapeHtml(label)}</div>
+      <div class="flex flex-wrap gap-2">
+        ${items}
+        ${extra}
+      </div>
+    </div>
+  `;
+}
+
 function buildNeighborMarkup(nodeId) {
   const incoming = getLookup().incoming.get(nodeId) || [];
   const outgoing = getLookup().outgoing.get(nodeId) || [];
@@ -403,21 +537,113 @@ function buildNodeHtml(node, typeStyle) {
   const icon = node.icon && ICON_SVGS[node.icon]
     ? `<span class="node-icon">${ICON_SVGS[node.icon]}</span>`
     : '';
+  const levelLabel = escapeHtml(titleCase(node.level || 'high'));
+  const levelPill = `<span class="level-pill level-${node.level || 'high'}">${levelLabel}</span>`;
   const tags = node.tags?.length
     ? `<div class="mt-3 flex flex-wrap gap-1">${node.tags.slice(0, 4).map((tag) => `<span class="tag-chip">${escapeHtml(tag)}</span>`).join('')}${node.tags.length > 4 ? `<span class="tag-chip extra">+${node.tags.length - 4}</span>` : ''}</div>`
     : '';
+  const work = buildNodeWorkBadges(node);
   return `
     <div class="node-header">
       <div class="node-header-left">
         ${icon}
+        ${levelPill}
         <span class="type-chip" style="color:${typeStyle.accent};border-color:${typeStyle.border};">${escapeHtml(typeStyle.label)}</span>
       </div>
-      ${status}
+      <div class="node-header-right">
+        ${work}
+        ${status}
+      </div>
     </div>
     <div class="node-title">${escapeHtml(node.label)}</div>
     <div class="node-summary">${escapeHtml(node.summary || '')}</div>
     ${tags}
   `;
+}
+function buildNodeWorkBadges(node) {
+  const badges = [];
+  const issueCount = node.work?.issues?.length ?? 0;
+  const prCount = node.work?.prs?.length ?? 0;
+  const insightCount = node.insights?.length ?? 0;
+  if (issueCount) {
+    badges.push(`<span class="node-badge node-badge-issues" title="${issueCount} linked issues">#${issueCount}</span>`);
+  }
+  if (prCount) {
+    badges.push(`<span class="node-badge node-badge-prs" title="${prCount} pull requests">PR${prCount}</span>`);
+  }
+  if (insightCount) {
+    badges.push(`<span class="node-badge node-badge-insights" title="${insightCount} insights">INS${insightCount}</span>`);
+  }
+  if (!badges.length) return '';
+  return `<span class="node-badges">${badges.join('')}</span>`;
+}
+
+function buildSourceMarkup(source) {
+  if (!source) return '';
+  const rows = [];
+  if (source.path) rows.push(`<div><span class="source-label">Path</span><code>${escapeHtml(source.path)}</code></div>`);
+  if (source.symbol) rows.push(`<div><span class="source-label">Symbol</span><code>${escapeHtml(source.symbol)}</code></div>`);
+  if (source.lang) rows.push(`<div><span class="source-label">Language</span><span>${escapeHtml(source.lang)}</span></div>`);
+  if (source.git?.repo) rows.push(`<div><span class="source-label">Repo</span><span>${escapeHtml(source.git.repo)}</span></div>`);
+  if (source.git?.commit) rows.push(`<div><span class="source-label">Commit</span><code>${escapeHtml(source.git.commit.slice(0, 12))}</code></div>`);
+  if (source.git?.blame?.path) {
+    const line = source.git.blame.line ? `:${source.git.blame.line}` : '';
+    rows.push(`<div><span class="source-label">Blame</span><span>${escapeHtml(source.git.blame.path + line)}</span></div>`);
+  }
+  if (!rows.length) return '';
+  return `<div class="mt-5"><div class="sidebar-section-title mb-2">Source</div><div class="source-list">${rows.join('')}</div></div>`;
+}
+
+function buildWorkSection(work) {
+  const issues = work?.issues ?? [];
+  const prs = work?.prs ?? [];
+  if (!issues.length && !prs.length) return '';
+  const issueList = issues.map((issue) => {
+    const title = issue.title ? ` ${escapeHtml(issue.title)}` : '';
+    const stateClass = issue.state ? String(issue.state).toLowerCase().replace(/\s+/g, '-') : '';
+    const state = issue.state ? `<span class="work-status work-status-${stateClass}">${escapeHtml(issue.state)}</span>` : '';
+    const confidence = Number.isFinite(issue.confidence)
+      ? `<span class="work-confidence">${Math.round(issue.confidence * 100)}% match</span>`
+      : '';
+    const labels = Array.isArray(issue.labels) && issue.labels.length
+      ? `<span class="work-labels">${issue.labels.slice(0, 3).map((label) => `<span>${escapeHtml(label)}</span>`).join('')}</span>`
+      : '';
+    return `<li><a class="work-link panzoom-exclude" href='${issue.url}' target="_blank" rel="noopener noreferrer">#${issue.number}${title}</a>${state}${confidence}${labels}</li>`;
+  }).join('');
+
+  const prList = prs.map((pr) => {
+    const title = pr.title ? ` ${escapeHtml(pr.title)}` : '';
+    const stateClass = pr.state ? String(pr.state).toLowerCase().replace(/\s+/g, '-') : '';
+    const state = pr.state ? `<span class="work-status work-status-${stateClass}">${escapeHtml(pr.state)}</span>` : '';
+    return `<li><a class="work-link panzoom-exclude" href='${pr.url}' target="_blank" rel="noopener noreferrer">PR #${pr.number}${title}</a>${state}</li>`;
+  }).join('');
+
+  const sections = [];
+  if (issueList) sections.push(`<div><div class="sidebar-section-title mb-2">Issues</div><ul class="work-list">${issueList}</ul></div>`);
+  if (prList) sections.push(`<div class="mt-4"><div class="sidebar-section-title mb-2">Pull Requests</div><ul class="work-list">${prList}</ul></div>`);
+  return `<div class="mt-5">${sections.join('')}</div>`;
+}
+
+function buildInsightsMarkup(insights) {
+  if (!Array.isArray(insights) || !insights.length) return '';
+  const cards = insights.map((insight) => {
+    const level = insight.level || 'high';
+    const kind = escapeHtml(titleCase(insight.kind || 'Insight'));
+    const confidence = Number.isFinite(insight.confidence)
+      ? `${Math.round(insight.confidence * 100)}%`
+      : 'n/a';
+    const actions = Array.isArray(insight.actions) && insight.actions.length
+      ? `<ul class="insight-actions">${insight.actions.map((action) => `<li>${escapeHtml(action)}</li>`).join('')}</ul>`
+      : '';
+    const sources = Array.isArray(insight.sources) && insight.sources.length
+      ? `<div class="insight-sources"><span>Sources:</span>${insight.sources.map((source) => {
+          const parts = [source.type, source.id || source.path || source.url].filter(Boolean).map((value) => escapeHtml(String(value)));
+          return `<span>${parts.join(' | ')}</span>`;
+        }).join('')}</div>`
+      : '';
+    return `<div class="insight-card insight-level-${level}"><div class="insight-header"><span class="insight-kind">${kind}</span><span class="insight-confidence">${confidence}</span></div><div class="insight-text">${escapeHtml(insight.text || '')}</div>${actions}${sources}</div>`;
+  }).join('');
+  return `<div class="mt-5"><div class="sidebar-section-title mb-2">Insights</div><div class="space-y-3">${cards}</div></div>`;
 }
 
 function computeConnections(edgeInfo, selectedId, hoverId) {
@@ -548,3 +774,6 @@ function attachDragHandlers(ctx, element, node) {
   element.addEventListener('pointerup', onPointerUp);
   element.addEventListener('pointercancel', onPointerCancel);
 }
+
+
+

@@ -21,7 +21,12 @@ export const TYPE_STYLES = {
   tooling: { label: 'Tooling', accent: '#38bdf8', border: 'rgba(56,189,248,0.4)', background: 'linear-gradient(135deg, rgba(12,74,110,0.24), rgba(12,18,32,0.7))' },
   external: { label: 'External', accent: '#fb7185', border: 'rgba(251,113,133,0.45)', background: 'linear-gradient(135deg, rgba(127,29,29,0.24), rgba(40,11,11,0.75))' },
   service: { label: 'Service', accent: '#34d399', border: 'rgba(34,197,94,0.35)', background: 'linear-gradient(135deg, rgba(12,74,110,0.2), rgba(13,42,44,0.7))' },
-  asset: { label: 'Asset', accent: '#f472b6', border: 'rgba(244,114,182,0.45)', background: 'linear-gradient(135deg, rgba(109,40,217,0.22), rgba(57,24,94,0.7))' }
+  asset: { label: 'Asset', accent: '#f472b6', border: 'rgba(244,114,182,0.45)', background: 'linear-gradient(135deg, rgba(109,40,217,0.22), rgba(57,24,94,0.7))' },
+  repository: { label: 'Repository', accent: '#facc15', border: 'rgba(250,204,21,0.55)', background: 'linear-gradient(135deg, rgba(120,53,15,0.28), rgba(30,41,59,0.75))' },
+  project: { label: 'Project', accent: '#38bdf8', border: 'rgba(56,189,248,0.5)', background: 'linear-gradient(135deg, rgba(30,64,175,0.24), rgba(15,23,42,0.78))' },
+  milestone: { label: 'Milestone', accent: '#a855f7', border: 'rgba(168,85,247,0.5)', background: 'linear-gradient(135deg, rgba(91,33,182,0.24), rgba(49,46,129,0.78))' },
+  issue: { label: 'Issue', accent: '#fb7185', border: 'rgba(251,113,133,0.5)', background: 'linear-gradient(135deg, rgba(127,29,29,0.22), rgba(56,28,36,0.78))' },
+  'pull-request': { label: 'Pull Request', accent: '#34d399', border: 'rgba(34,197,94,0.5)', background: 'linear-gradient(135deg, rgba(6,95,70,0.24), rgba(12,83,62,0.78))' }
 };
 
 export const STATUS_TONES = {

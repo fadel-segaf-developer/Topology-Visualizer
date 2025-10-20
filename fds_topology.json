@@ -1,0 +1,587 @@
+{
+  "meta": {
+    "name": "FDS Architecture Topology",
+    "version": "2025-10-20",
+    "description": "High, medium, and low level view of the Fazza Driving Simulator (FDS) core project, TMS plugins, and vehicle input integrations.",
+    "viewModes": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "defaultView": "high",
+    "guides": [
+      {
+        "label": "FDS Repository",
+        "url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3",
+        "description": "Primary source tree mirrored under RepoExtractor/working"
+      }
+    ],
+    "intents": {
+      "depends-on": {
+        "label": "Depends On",
+        "color": "#38bdf8"
+      },
+      "integrates": {
+        "label": "Integrates",
+        "color": "#22d3ee"
+      },
+      "controls": {
+        "label": "Controls",
+        "color": "#f97316"
+      },
+      "publishes": {
+        "label": "Publishes",
+        "color": "#a855f7"
+      }
+    },
+    "repository": {
+      "provider": "gitea",
+      "owner": "FRYS-DEV",
+      "name": "UE_FDS3",
+      "url": "https://git.frys.co.id/FRYS-DEV/UE_FDS3"
+    },
+    "lastSyncedAt": "2025-10-20T16:30:00Z"
+  },
+  "nodes": [
+    {
+      "id": "fds-platform",
+      "label": "FDS Simulation Platform",
+      "level": "high",
+      "type": "system",
+      "group": "FDS",
+      "summary": "Core UE5 project that boots the simulator, manages sessions, and brokers vehicle IO into gameplay systems.",
+      "tags": [
+        "C++",
+        "Unreal"
+      ],
+      "source": {
+        "path": "Source/UE_FDS3"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 20
+        },
+        {
+          "label": "Modules",
+          "value": 2
+        }
+      ],
+      "insights": [
+        {
+          "level": "high",
+          "kind": "architecture",
+          "text": "Vehicle IO still flows directly through the FGear adapter layer; isolate it behind an interface before introducing new input providers.",
+          "confidence": 0.6,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Source/UE_FDS3/Core"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tms-suite",
+      "label": "Traffic Management Suite",
+      "level": "high",
+      "type": "plugin",
+      "group": "FDS",
+      "summary": "FDS_TMS plugin family that spawns traffic, manages signals, and reports scoring telemetry for training scenarios.",
+      "tags": [
+        "Plugin",
+        "Traffic"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS"
+      },
+      "metrics": [
+        {
+          "label": "Modules",
+          "value": 6
+        },
+        {
+          "label": "C++ Files",
+          "value": 40
+        }
+      ],
+      "insights": [
+        {
+          "level": "high",
+          "kind": "architecture",
+          "text": "Signals and scoring runtimes are present but minimally implemented; plan backlog to flesh out telemetry and junction orchestration.",
+          "confidence": 0.5,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FDS_TMS/Source/FDS_TMS_SignalsRuntime"
+            },
+            {
+              "type": "path",
+              "path": "Plugins/FDS_TMS/Source/FDS_TMS_ScoringRuntime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vehicle-input",
+      "label": "Vehicle & Input Integrations",
+      "level": "high",
+      "type": "plugin",
+      "group": "FDS",
+      "summary": "FGear physics integration plus SimpleController input stack that supplies wheel and pedal data to the simulator.",
+      "tags": [
+        "FGear",
+        "Input"
+      ],
+      "source": {
+        "path": "Plugins"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 179
+        },
+        {
+          "label": "Plugins",
+          "value": 3
+        }
+      ],
+      "insights": [
+        {
+          "level": "high",
+          "kind": "architecture",
+          "text": "Input translation spans multiple plugins; consolidate mapping logic to reduce duplication between SimpleController and FRYS wrappers.",
+          "confidence": 0.55,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FRYS_SimpleController"
+            },
+            {
+              "type": "path",
+              "path": "Plugins/SimpleController_5.4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fds-runtime-core",
+      "label": "Runtime Core",
+      "level": "medium",
+      "type": "module",
+      "group": "FDS Platform",
+      "parent": "fds-platform",
+      "summary": "GameMode, controllers, and vehicle adapters coordinating the base simulation loop.",
+      "tags": [
+        "Gameplay",
+        "C++"
+      ],
+      "source": {
+        "path": "Source/UE_FDS3/Core"
+      },
+      "metrics": [
+        {
+          "label": "Key Classes",
+          "value": 6
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "risk",
+          "text": "Runtime core references both FRYS input and FGear physics types; introduce abstraction to allow alternate vehicle stacks.",
+          "confidence": 0.6,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Source/UE_FDS3/Public/FDS_FGearVehicleInputAdapter.h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fds-tooling",
+      "label": "Simulation Tooling",
+      "level": "medium",
+      "type": "module",
+      "group": "FDS Platform",
+      "parent": "fds-platform",
+      "summary": "Editor utilities for spawning buildings, splines, and instanced assets to assemble driving maps.",
+      "tags": [
+        "Editor",
+        "Tools"
+      ],
+      "source": {
+        "path": "Source/UE_FDS3/Tools"
+      },
+      "metrics": [
+        {
+          "label": "Utilities",
+          "value": 9
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "opportunity",
+          "text": "Tooling operates on raw landscape splines; factor common helpers that TMS editor modules can reuse.",
+          "confidence": 0.55,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Source/UE_FDS3/Tools/FDS_LandscapeSplineBPHelper.cpp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tms-core",
+      "label": "TMS Core Services",
+      "level": "medium",
+      "type": "module",
+      "group": "Traffic Suite",
+      "parent": "tms-suite",
+      "summary": "Registry subsystem, gameplay settings, and vehicle provider contracts shared across TMS runtimes.",
+      "tags": [
+        "Subsystem",
+        "Services"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS/Source/FDS_TMS_Core"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 13
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "architecture",
+          "text": "Registry subsystem doubles as spawn orchestration; consider splitting discovery from lifecycle management to simplify testing.",
+          "confidence": 0.5,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FDS_TMS/Source/FDS_TMS_Core/Public/FDS_TMS_TrafficRegistrySubsystem.h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tms-traffic",
+      "label": "Traffic Runtime",
+      "level": "medium",
+      "type": "module",
+      "group": "Traffic Suite",
+      "parent": "tms-suite",
+      "summary": "Actors and components that spawn, update, and monitor AI-controlled traffic fleets.",
+      "tags": [
+        "Runtime",
+        "AI"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS/Source/FDS_TMS_TrafficRuntime"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 15
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "performance",
+          "text": "Traffic manager runs on tick-based timers; profile spline generation and lane checking before scaling beyond alpha maps.",
+          "confidence": 0.55,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FDS_TMS/Source/FDS_TMS_TrafficRuntime/Public/FDS_TMS_TrafficManager.h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tms-editor-signals",
+      "label": "Editor & Signals",
+      "level": "medium",
+      "type": "module",
+      "group": "Traffic Suite",
+      "parent": "tms-suite",
+      "summary": "Editor scripting for lane splines plus signal runtime stubs awaiting state machine logic.",
+      "tags": [
+        "Editor",
+        "Signals"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS/Source"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 7
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "opportunity",
+          "text": "Signals runtime is a stub; coordinate with editor helpers to drive traffic signal assets.",
+          "confidence": 0.45,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FDS_TMS/Source/FDS_TMS_SignalsRuntime"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vehicle-fgear",
+      "label": "FGear Physics Stack",
+      "level": "medium",
+      "type": "module",
+      "group": "Vehicle Input",
+      "parent": "vehicle-input",
+      "summary": "Vehicle dynamics, standard input mapping, drivetrain, and telemetry components provided by FGear.",
+      "tags": [
+        "Physics",
+        "C++"
+      ],
+      "source": {
+        "path": "Plugins/FGearPlufac96823801dV3"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 65
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "performance",
+          "text": "Standard input class mixes legacy and enhanced systems; factor per-platform handlers to reduce branching.",
+          "confidence": 0.55,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FGearPlufac96823801dV3/Source/FGearPlugin/Public/FGearStandardInput.h"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vehicle-simplecontroller",
+      "label": "SimpleController SDK",
+      "level": "medium",
+      "type": "module",
+      "group": "Vehicle Input",
+      "parent": "vehicle-input",
+      "summary": "Third-party controller abstraction exposing SDL-backed gamepad, wheel, and mobile input.",
+      "tags": [
+        "Input",
+        "SDK"
+      ],
+      "source": {
+        "path": "Plugins/SimpleController_5.4"
+      },
+      "metrics": [
+        {
+          "label": "Header Files",
+          "value": 114
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "risk",
+          "text": "Plugin bundles runtime and third-party SDL headers; keep the fork updated to avoid security regressions.",
+          "confidence": 0.5,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/SimpleController_5.4/Source/ThirdParty"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vehicle-frys-wrapper",
+      "label": "FRYS Input Wrapper",
+      "level": "medium",
+      "type": "module",
+      "group": "Vehicle Input",
+      "parent": "vehicle-input",
+      "summary": "Project-specific subsystem that captures raw wheel data and publishes canonical control snapshots.",
+      "tags": [
+        "Input",
+        "Subsystem"
+      ],
+      "source": {
+        "path": "Plugins/FRYS_SimpleController"
+      },
+      "metrics": [
+        {
+          "label": "C++ Files",
+          "value": 16
+        }
+      ],
+      "insights": [
+        {
+          "level": "medium",
+          "kind": "architecture",
+          "text": "Wrapper mirrors SimpleController types; re-export only the metadata required by the adapter to keep compile times down.",
+          "confidence": 0.55,
+          "sources": [
+            {
+              "type": "path",
+              "path": "Plugins/FRYS_SimpleController/Source/FRYS_SC_Input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fds-vehicle-adapter",
+      "label": "FDS_FGearVehicleInputAdapter",
+      "level": "low",
+      "type": "component",
+      "group": "FDS Platform",
+      "parent": "fds-runtime-core",
+      "summary": "Actor component that listens to FRYS raw input and forwards commands to the active FGear vehicle.",
+      "tags": [
+        "Adapter",
+        "Input"
+      ],
+      "source": {
+        "path": "Source/UE_FDS3/Public/FDS_FGearVehicleInputAdapter.h"
+      }
+    },
+    {
+      "id": "tms-registry",
+      "label": "FDS_TMS_TrafficRegistrySubsystem",
+      "level": "low",
+      "type": "subsystem",
+      "group": "Traffic Suite",
+      "parent": "tms-core",
+      "summary": "Gameplay subsystem tracking registered lanes, managers, and spawn requests for TMS.",
+      "tags": [
+        "Subsystem"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS/Source/FDS_TMS_Core/Public/FDS_TMS_TrafficRegistrySubsystem.h"
+      }
+    },
+    {
+      "id": "tms-traffic-manager",
+      "label": "AFDS_TMS_TrafficManager",
+      "level": "low",
+      "type": "actor",
+      "group": "Traffic Suite",
+      "parent": "tms-traffic",
+      "summary": "Timer-driven actor that maintains vehicle populations and generates lane spline actors in editor builds.",
+      "tags": [
+        "Traffic",
+        "Actor"
+      ],
+      "source": {
+        "path": "Plugins/FDS_TMS/Source/FDS_TMS_TrafficRuntime/Public/FDS_TMS_TrafficManager.h"
+      }
+    },
+    {
+      "id": "fg-vehicle",
+      "label": "AFGearVehicle",
+      "level": "low",
+      "type": "pawn",
+      "group": "Vehicle Input",
+      "parent": "vehicle-fgear",
+      "summary": "Primary vehicle pawn with physics-driven drivetrain, telemetry, and replication hooks.",
+      "tags": [
+        "Vehicle"
+      ],
+      "source": {
+        "path": "Plugins/FGearPlufac96823801dV3/Source/FGearPlugin/Public/FGearVehicle.h"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "tms-suite",
+      "to": "fds-platform",
+      "intent": "depends-on",
+      "level": "high",
+      "summary": "Traffic suite uses FDS runtime services and subsystems."
+    },
+    {
+      "from": "vehicle-input",
+      "to": "fds-platform",
+      "intent": "depends-on",
+      "level": "high",
+      "summary": "Input integrations feed data into the core simulation."
+    },
+    {
+      "from": "tms-traffic",
+      "to": "vehicle-fgear",
+      "intent": "integrates",
+      "level": "medium",
+      "summary": "Traffic runtime spawns and manages FGear-driven vehicles."
+    },
+    {
+      "from": "tms-traffic",
+      "to": "vehicle-frys-wrapper",
+      "intent": "depends-on",
+      "level": "medium",
+      "summary": "Traffic AI relies on FRYS input snapshots to steer vehicles."
+    },
+    {
+      "from": "fds-runtime-core",
+      "to": "vehicle-fgear",
+      "intent": "integrates",
+      "level": "medium",
+      "summary": "Core runtime attaches FGear components to simulate vehicles."
+    },
+    {
+      "from": "vehicle-frys-wrapper",
+      "to": "vehicle-simplecontroller",
+      "intent": "depends-on",
+      "level": "medium",
+      "summary": "FRYS wrapper is layered on top of the SimpleController SDK."
+    },
+    {
+      "from": "tms-editor-signals",
+      "to": "fds-tooling",
+      "intent": "integrates",
+      "level": "medium",
+      "summary": "Editor helpers share spline utilities with the core tooling."
+    },
+    {
+      "from": "tms-registry",
+      "to": "tms-traffic-manager",
+      "intent": "controls",
+      "level": "low",
+      "summary": "Registry hands out lane data and spawn targets to the traffic manager."
+    },
+    {
+      "from": "tms-traffic-manager",
+      "to": "fg-vehicle",
+      "intent": "publishes",
+      "level": "low",
+      "summary": "Traffic manager spawns FGear vehicles during runtime."
+    }
+  ]
+}
